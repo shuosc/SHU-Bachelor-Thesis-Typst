@@ -22,7 +22,7 @@
 
     text(
       font: "Times New Roman",
-      size: 18pt,
+      size: font_size.xiaoer,
       weight: "bold"
     )[SHANGHAI  UNIVERSITY],
 
@@ -33,7 +33,7 @@
 
     text(
       font: "Times New Roman",
-      size: 16pt,
+      size: font_size.sanhao,
       weight: "bold"
     )[UNDERGRADUATE  THESIS (PROJECT)]
   )
@@ -47,7 +47,7 @@
         stroke: none,
         text(
         font: kaiti,
-        size: 18pt,
+        size: font_size.xiaoer,
         weight: "bold",
         overhang: false,
         "题 目:"
@@ -60,7 +60,7 @@
       ),
       text(
         font: kaiti,
-        size: 18pt,
+        size: font_size.xiaoer,
         weight: "medium",
         bottom-edge: "descender"
       )[
@@ -80,7 +80,7 @@
       ),
       text(
         font: songti,
-        size: 18pt,
+        size: font_size.xiaoer,
         weight: "medium",
         bottom-edge: "descender"
       )[
@@ -94,7 +94,7 @@
       stroke: none,
       text(
       font: heiti,
-      size: 18pt,
+      size: font_size.xiaoer,
       weight: "bold",
       overhang: false,
       body
