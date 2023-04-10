@@ -48,6 +48,24 @@ $
     F_1(x) + F_2(x) + ... + F_n(x) = sum_(i=1)^(n) F_i(x)
 $ <eq-2>
 
+= 表格样例
+
+@tab-oscer 展示了部分SHUOSC在校生或校友信息@SHUOSCers。
+
+#figure(
+  table(
+     columns: (auto, auto, auto,auto),
+     [怎么称呼],	[所在院系],	[来句介绍],		[甩个链接],
+     [chinggg],	[2019网安],	[开源招新中],		[https://chinggg.github.io/],
+     [chasing],	[2019计科],	[摸鱼ing],		[https://chasing1020.github.io/],
+     [guttutas],	[2019计科],	[模板开发中],[https://github.com/guttatus],
+     [JamesNULLiu],	[2021计科],	[C艹天下第一],[https://www.cnblogs.com/jamesnulliu/],
+  ),
+  caption : [
+    SHUOSCers
+  ]
+) <tab-oscer>
+
 == #lorem(1)
 
 #lorem(100)

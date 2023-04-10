@@ -36,7 +36,7 @@ show figure: it => [
       [
         #textbf("表")
         #locate(loc => {
-          [#counter_chapter.at(loc).first().#counter_table(loc).first()]
+          [#counter_chapter.at(loc).first().#counter_table.at(loc).first()]
         })
         #it.caption
       ]
@@ -76,11 +76,15 @@ show figure: it => [
             #counter_chapter.at(elem_loc).first().#counter_equation.at(elem_loc).first()
           ])
         } else if elem.func() == figure{
-          link(elem_loc, [#textbf("图")
-            #counter_chapter.at(elem_loc).first().#counter_image.at(elem_loc).first()
-          ])
-        } else {
-          it
+          if elem.kind == image {
+            link(elem_loc, [#textbf("图")
+              #counter_chapter.at(elem_loc).first().#counter_image.at(elem_loc).first()
+            ])
+          } else if elem.kind == table {
+            link(elem_loc, [#textbf("表")
+              #counter_chapter.at(elem_loc).first().#counter_table.at(elem_loc).first()
+            ])
+          }
         }
       } else {
         it
