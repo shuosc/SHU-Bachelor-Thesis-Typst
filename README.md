@@ -38,3 +38,6 @@ $ make
 - [ ]  公式插入格式
 - [ ]  页首及页尾格式（未找到明确要求）
 - [x]  模块划分
+
+## License
+This template is released under the Apache License. See the [LICENSE](./LICENSE) file for more details.
