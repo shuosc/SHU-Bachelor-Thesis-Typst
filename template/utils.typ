@@ -11,3 +11,27 @@
 #let zhnumbers(num) = {
     ("零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十").at(int(num))
 }
+
+// -----------------
+// textbf 工具函数
+// @param: it, 要加粗的文本
+// @return: text, 加粗的文本
+// -----------------
+// 2023/4/11 update log：
+//  - 粗体字
+#let textbf(it) = [
+    #set text(weight: "semibold")
+    #it
+]
+
+// -----------------
+// textit 工具函数
+// @param: it, 要斜体的文本
+// @return: text, 斜体的文本
+// -----------------
+// 2023/4/11 update log：
+//  - 斜体字
+#let textit(it) = [
+    #set text(style: "italic")
+    #it
+]
