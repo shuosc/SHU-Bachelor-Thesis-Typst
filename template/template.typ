@@ -22,9 +22,6 @@
   // 目录
   toc()
   
-  // 置计数器
-  counter(page).update(1)
-
   // 摘要
   include "abstract.typ"
 
