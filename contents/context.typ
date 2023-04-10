@@ -21,8 +21,7 @@ In real open source, you have the right to control your own destiny. —— Linu
 // 新增了对图的引用参考
 如@fig-shuosc 所示是一个图片样例。
 
-== 插入图片
-#img(
+#figure(
   image("../images/shuosc.png", width: 50%),
   caption: [
     如果你对计算机技术充满兴趣，或是愿意参与到我们的活动中来，欢迎加入我们！
@@ -33,7 +32,7 @@ In real open source, you have the right to control your own destiny. —— Linu
 
 == 行内公式
 
-行内公式 $a^2 + b^2 = c^2$ 行内公式
+行内公式 $a^2 + b^2 = c^2$ 行内公式。
 
 == 独立公式
 
@@ -43,21 +42,15 @@ $
     sum_(i=1)^(n) F_i(x) = F_1(x) + F_2(x) + ... + F_n(x)
 $ <eq-1>
 
-== 插入表格
-@oscer 展示了部分SHUOSC在校生或校友信息@SHUOSCers。
-#tab(
-  table(
-     columns: (auto, auto, auto,auto),
-     [怎么称呼],	[所在院系],	[来句介绍],		[甩个链接],
-     [chinggg],	[2019网安],	[开源招新中],		[https://chinggg.github.io/],
-     [chasing],	[2019计科],	[摸鱼ing],		[https://chasing1020.github.io/],
-     [guttutas],	[2019计科],	[模板开发中],[https://github.com/guttatus],
-     [JamesNULLiu],	[2021计科],	[C艹天下第一],[https://www.cnblogs.com/jamesnulliu/],
-  ),
-  caption : [
-    SHUOSCers
-  ]
-) <oscer>
+独立公式，如@eq-2 所示。
+
+$
+    F_1(x) + F_2(x) + ... + F_n(x) = sum_(i=1)^(n) F_i(x)
+$ <eq-2>
+
+== #lorem(1)
+
+#lorem(100)
 
 === #lorem(2)
 
