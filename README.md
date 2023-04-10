@@ -18,7 +18,7 @@ pacman -S typst
 
 ### 编写
 
-修改body目录下各文件即可 
+修改contents目录下各文件即可 
 
 ### 编译
 
