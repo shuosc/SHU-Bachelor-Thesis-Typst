@@ -1,5 +1,7 @@
 #import "font.typ": *
 
+// 支持的引文格式："apa", "chicago-author-date", "ieee", or "mla"
+// [] TODO: DIY 国标引文格式
 #let bibliography_file = "../reference/refs.bib"
   // 展示参考文献
 
