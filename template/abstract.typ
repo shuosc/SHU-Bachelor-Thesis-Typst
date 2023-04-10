@@ -3,14 +3,25 @@
 #import "../contents/abstract.typ": *
 
 
+#show heading : it => {
+  set align(center)
+  set text(font:heiti, size: 18pt, weight: "bold")
+  it
+}
+
 #pagebreak()
+// 从摘要开始算页数
+#counter(page).update(1)
+
 // 中文摘要页
   #v(2em)
   #align(center)[
     #text(font:heiti, size:26pt)[#title]
-    #v(26pt)
-    #text(font:heiti, size:18pt)[摘要]
-  ]
+    #v(2em)]
+ 
+  #heading(level: 1)[摘要]
+
+  #v(2em)
 
   #par(
     justify: false,
@@ -30,9 +41,9 @@
 //英文摘要页
   #v(2em)
 
-  #align(center)[
-    #text( font: heiti, size: 18pt, "Abstract")
-  ]
+  #heading(level: 1)[Abstract]
+  
+  #v(2em)
 
   #par(justify: false, 
        leading: 1.5em, 

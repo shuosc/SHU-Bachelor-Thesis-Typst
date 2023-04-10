@@ -8,3 +8,12 @@
     supplement: [图],
   )
 }
+
+#let tab(table, caption: "") = {
+  figure(
+    table,
+    caption: caption,
+    kind : "table",
+    supplement: [表],
+  )
+}
