@@ -16,7 +16,10 @@ In real open source, you have the right to control your own destiny. —— Linu
 
 #lorem(100)
  
-= 样例
+= 图表样例
+
+// 新增了对图的引用参考
+如@fig-shuosc 所示是一个图片样例。
 
 == 插入图片
 #img(
@@ -24,7 +27,21 @@ In real open source, you have the right to control your own destiny. —— Linu
   caption: [
     如果你对计算机技术充满兴趣，或是愿意参与到我们的活动中来，欢迎加入我们！
   ],
-)
+) <fig-shuosc>
+
+= 公式样例
+
+== 行内公式
+
+行内公式 $a^2 + b^2 = c^2$ 行内公式
+
+== 独立公式
+
+独立公式，如@eq-1 所示。
+
+$
+    sum_(i=1)^(n) F_i(x) = F_1(x) + F_2(x) + ... + F_n(x)
+$ <eq-1>
 
 == 插入表格
 @oscer 展示了部分SHUOSC在校生或校友信息@SHUOSCers。

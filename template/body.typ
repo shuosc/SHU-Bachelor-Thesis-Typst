@@ -6,7 +6,7 @@
 
   // 图片和表的格式
   show figure: it => {
-    set text(font:songti, size : 12pt)
+    set text(font:songti, size : font_size.xiaosi)
     set align(center)
     if it.kind == "image" {
       it.body
@@ -33,22 +33,22 @@
     set text(10pt, weight: 400)
     if it.level == 1 {
       set align(center)
-      set text(font:heiti, size: 18pt, weight: "bold")
+      set text(font:heiti, size: font_size.xiaoer, weight: "bold")
       if it.numbering != none {
         "第" + zhnumbers(numbering("1", deepest)) + "章 "
       }
       it.body
     } else if it.level == 2 {
-      set text(font:heiti, size: 14pt, weight: "bold" )
+      set text(font:heiti, size: font_size.sihao, weight: "bold" )
       it
     } else if it.level == 3 {
-      set text(font:heiti, size: 12pt, weight: "bold" )
+      set text(font:heiti, size: font_size.xiaosi, weight: "bold" )
       it
     }
   })
 
   // 设置正文格式
-  set text(font: songti, size: 12pt)
+  set text(font: songti, size: font_size.xiaosi)
   set par(justify: false, leading: 1.5em, first-line-indent: 2em)
   show par: it => {
     it 

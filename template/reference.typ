@@ -7,7 +7,7 @@
     show bibliography: set text(10pt)
     show heading : it => {
       set align(center)
-      set text(font:heiti, size: 18pt, weight: "bold")
+      set text(font:heiti, size: font_size.xiaoer, weight: "bold")
       it
     }
     bibliography(bibliography_file,
