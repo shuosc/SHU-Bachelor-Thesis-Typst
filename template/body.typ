@@ -1,16 +1,5 @@
 #import "font.typ": *
-
-// 助手函数，很恐怖吗？是的，这很恐怖。
-#let zhnumbers(num) = {
-  if num == "1" { "一" }
-  else if num == "2" { "二" }
-  else if num == "3" { "三" }
-  else if num == "4" { "四" }
-  else if num == "5" { "五" }
-  else if num == "6" { "六" }
-  else if num == "7" { "七" }
-  else if num == "8" { "八" }
-}
+#import "utils.typ": *
 
 #let show_body() = {
   pagebreak()
