@@ -1,5 +1,3 @@
-#import "../template/figure.typ": *
-
 = 绪论
 
 == 上海大学开源爱好者的交流平台
