@@ -27,8 +27,7 @@
 
   show_body()
 
+
   include "reference.typ"
 
-  // 支持的引文格式："apa", "chicago-author-date", "ieee", or "mla"
-  // [] TODO: DIY 国标引文格式
 }
