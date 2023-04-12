@@ -9,9 +9,17 @@
   it
 }
 
+// 页脚格式
+#set page(footer: [
+    #set align(center)
+    #set text(size: 10pt, baseline: -3pt)
+    #counter(page).display(
+      "I",
+    )
+] )
+
 #pagebreak()
 // 从摘要开始算页数
-#counter(page).update(1)
 
 // 中文摘要页
   #v(2em)
