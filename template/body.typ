@@ -93,28 +93,23 @@ show figure: it => [
   })
   }
 
-  set heading(numbering: "1.1.1")
+  set heading(numbering: (..nums) => 
+                            if nums.pos().len() == 1 {
+                              "第"+zhnumbers(nums.pos().first()) +"章"
+                            } 
+                            else {
+                              nums.pos().map(str).join(".")
+                            })
 
-  show heading: it => locate(loc => {
-    let levels = counter(heading).at(loc)
-    let deepest = if levels != () {
-      levels.last()
-    } else {
-      1
-    }
-
-    set text(10pt, weight: 400)
+  show heading: it =>  {
     if it.level == 1 {
       set align(center)
       set text(font:heiti, size: font_size.xiaoer, weight: "bold")
-      if it.numbering != none {
-        counter_chapter.step()  // 章节计数器 +1
-        "第" + zhnumbers(numbering("1", deepest)) + "章 "
-      }
+      counter_chapter.step()
       counter_equation.update(())
       counter_image.update(())
       counter_table.update(())
-      it.body
+      it
     } else if it.level == 2 {
       set text(font:heiti, size: font_size.sihao, weight: "bold" )
       it
@@ -122,7 +117,7 @@ show figure: it => [
       set text(font:heiti, size: font_size.xiaosi, weight: "bold" )
       it
     }
-  })
+  }
 
   // 设置正文格式
   set text(font: songti, size: font_size.xiaosi)
