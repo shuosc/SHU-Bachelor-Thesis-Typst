@@ -2,6 +2,10 @@
 #import "font.typ": *
 #import "../contents/info.typ": *
 
+#set page(footer: none)
+// 封面页码置0
+#counter(page).update(0)
+
 #align(center)[
   #v(20pt)
 
