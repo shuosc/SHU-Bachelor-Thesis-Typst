@@ -27,7 +27,7 @@
       set text(font: songti, 10pt, baseline: 8pt, spacing: 3pt)
       set align(center)
       [上海大学毕业论文(设计)]
-      line(length: 100%, stroke: 0.7pt)
+      line(length: 100%, stroke: 0.1pt)
     }
   )
 
@@ -37,8 +37,16 @@
   // 摘要
   include "abstract.typ"
 
+  // 正文
   include "body.typ"
 
+  // 致谢
+  include "acknowledgement.typ"
+
+  // 参考文献
   include "reference.typ"
+
+  //附录
+  include "appendix.typ"
 
 }
