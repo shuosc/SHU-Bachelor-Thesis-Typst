@@ -5,7 +5,7 @@
 
 #show heading : it => {
   set align(center)
-  set text(font:heiti, size: font_size.xiaoer, weight: "bold")
+  set text(font:heiti, size: font_size.xiaoer)
   it
 }
 
@@ -48,7 +48,7 @@
 
 //英文摘要页
   #v(2em)
-  #heading(level: 1)[Abstract]
+  #heading(level: 1)[ABSTRACT]
   #v(2em)
 
   #par(justify: false, 

@@ -104,17 +104,17 @@
 #show heading: it =>  {
   if it.level == 1 {
     set align(center)
-    set text(font:heiti, size: font_size.xiaoer, weight: "bold")
+    set text(font:heiti, size: font_size.xiaoer)
     counter_chapter.step()
     counter_equation.update(())
     counter_image.update(())
     counter_table.update(())
     it
   } else if it.level == 2 {
-    set text(font:heiti, size: font_size.sihao, weight: "bold" )
+    set text(font:heiti, size: font_size.sihao)
     it
   } else if it.level == 3 {
-    set text(font:heiti, size: font_size.xiaosi, weight: "bold" )
+    set text(font:heiti, size: font_size.xiaosi)
     it
   }
 }

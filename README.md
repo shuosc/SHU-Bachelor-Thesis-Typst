@@ -25,6 +25,9 @@ pacman -S typst
 ``` shell
 # for linux and macos
 $ make
+
+# for Windows
+$ .\make.bat
 ```
 
 
