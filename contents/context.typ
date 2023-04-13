@@ -8,12 +8,6 @@ In real open source, you have the right to control your own destiny. —— Linu
 + 技术交流社群：社区自 2010 年成立以来，已历经六届。这里有就职于微软、摩根士丹利、百度、腾讯、阿里等企业的已毕业成员，有正在清北交复浙乃至海外攻读硕博学位的高材生， 还有知名开源项目的贡献者。社区中校内同学与往届成员保持密切的联系，开展各式各样的技术交流， 衍生出前端技术、Python、Java 等专题兴趣小组。 这样良好的技术交流氛围，是社区宝贵的财富，也吸引了校内各类的技术爱好者们参与到社区活动与建设中来。
 + 线下活动：除了技术分享，我们还会定期举办「Geek Party」茶话会，促进社区成员之间交流。同时，我们与校外企业、技术组织维系长期合作关系， 不定期组织志愿者参加大型开源及技术专题活动，帮助同学们获知业界技术动向，了解开源事业发展。
 
-=== 段落缩进
-// [ ] TODO: 首段无法u缩进
-#lorem(100)
-
-#lorem(100)
- 
 = 图表样例
 
 // 新增了对图的引用参考
@@ -25,6 +19,24 @@ In real open source, you have the right to control your own destiny. —— Linu
     如果你对计算机技术充满兴趣，或是愿意参与到我们的活动中来，欢迎加入我们！
   ],
 ) <fig-shuosc>
+
+= 表格样例
+
+@tab-oscer 展示了部分SHUOSC在校生或校友信息@SHUOSCers。
+
+#figure(
+  table(
+     columns: (auto, auto, auto,auto),
+     [怎么称呼],	[所在院系],	[来句介绍],		[甩个链接],
+     [chinggg],	[2019网安],	[开源招新中],		[https://chinggg.github.io/],
+     [chasing],	[2019计科],	[摸鱼ing],		[https://chasing1020.github.io/],
+     [guttutas],	[2019计科],	[模板开发中],[https://github.com/guttatus],
+     [JamesNULLiu],	[2021计科],	[C艹天下第一],[https://www.cnblogs.com/jamesnulliu/],
+  ),
+  caption : [
+    SHUOSCers
+  ]
+) <tab-oscer>
 
 = 公式样例
 
@@ -46,23 +58,6 @@ $
     F_1(x) + F_2(x) + ... + F_n(x) = sum_(i=1)^(n) F_i(x)
 $ <eq-2>
 
-= 表格样例
-
-@tab-oscer 展示了部分SHUOSC在校生或校友信息@SHUOSCers。
-
-#figure(
-  table(
-     columns: (auto, auto, auto,auto),
-     [怎么称呼],	[所在院系],	[来句介绍],		[甩个链接],
-     [chinggg],	[2019网安],	[开源招新中],		[https://chinggg.github.io/],
-     [chasing],	[2019计科],	[摸鱼ing],		[https://chasing1020.github.io/],
-     [guttutas],	[2019计科],	[模板开发中],[https://github.com/guttatus],
-     [JamesNULLiu],	[2021计科],	[C艹天下第一],[https://www.cnblogs.com/jamesnulliu/],
-  ),
-  caption : [
-    SHUOSCers
-  ]
-) <tab-oscer>
 
 == #lorem(1)
 

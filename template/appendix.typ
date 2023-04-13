@@ -6,9 +6,9 @@
 #show heading : it => {
   pagebreak()
   set align(center)
-  set text(font:heiti, size: font_size.xiaoer)
-  it
+  text(font:heiti, size: font_size.xiaoer)[#it]
   v(1em)
+  par(leading: 1.5em)[#text(size:0.0em)[#h(0.0em)]]
 }
 
 // 设置段落格式

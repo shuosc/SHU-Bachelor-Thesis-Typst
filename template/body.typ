@@ -104,18 +104,21 @@
 #show heading: it =>  {
   if it.level == 1 {
     set align(center)
-    set text(font:heiti, size: font_size.xiaoer)
+    set text(font:heiti, size: font_size.xiaoer, weight: "regular")
     counter_chapter.step()
     counter_equation.update(())
     counter_image.update(())
     counter_table.update(())
     it
+    par(leading: 1.5em)[#text(size:0.0em)[#h(0.0em)]]
   } else if it.level == 2 {
-    set text(font:heiti, size: font_size.sihao)
+    set text(font:heiti, size: font_size.sihao, weight: "regular")
     it
+    par(leading: 1.5em)[#text(size:0.0em)[#h(0.0em)]]
   } else if it.level == 3 {
-    set text(font:heiti, size: font_size.xiaosi)
+    set text(font:heiti, size: font_size.xiaosi, weight: "regular")
     it
+    par(leading: 1.5em)[#text(size:0.0em)[#h(0.0em)]]
   }
 }
 

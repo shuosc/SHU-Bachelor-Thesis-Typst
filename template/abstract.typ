@@ -7,6 +7,7 @@
   set align(center)
   set text(font:heiti, size: font_size.xiaoer)
   it
+  par(leading: 1.5em)[#text(size:0.0em)[#h(0.0em)]]
 }
 
 // 页脚格式

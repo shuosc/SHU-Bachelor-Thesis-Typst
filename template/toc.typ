@@ -20,7 +20,7 @@
 
 #show outline: it => {
   set text(font: songti, size: font_size.xiaosi)
-  set par(leading: 1.5em )
+  set par(leading: 1em )
   it
 }
 #outline(
