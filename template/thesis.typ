@@ -15,12 +15,12 @@
   under-cover,
 ) = documentclass(
   info: (
-    title: "基于nana的nini",
-    school: "某某学院",
-    major: "某某专业",
-    student_id: "21XXXXX",
-    name: "塔尖",
-    supervisor: "塔瘪教授",
+    title: "基于Typst的上海大学毕业论文模板",
+    school: "计算机工程与科学",
+    major: "计算机科学与技术",
+    student_id: "21123456",
+    name: "张三",
+    supervisor: "李四教授",
     date: "1000-2000",
   ),
 )

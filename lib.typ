@@ -17,16 +17,16 @@
 ) = {
   info = (
     (
-      student_id: "21XXXXX",
-      name: "塔尖",
-      supervisor: "塔瘪教授",
-      school: "某某学院",
-      major: "某某专业",
-      title: "基于nana的nini",
+      title: "[论文题目]",
+      school: "[学院]",
+      major: "[专业]",
+      student_id: "[学号]",
+      name: "[姓名]",
+      supervisor: "[指导老师]",
+      date: "[起讫日期]"
     )
       + info
   )
-
   (
     info: info,
     doc: (..args) => doc(
