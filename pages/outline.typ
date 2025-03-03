@@ -1,5 +1,4 @@
 #import "../style/font.typ": ziti, zihao
-// #import "@preview/outrageous:0.3.0"
 
 #let outline-page(
   info: (:),
