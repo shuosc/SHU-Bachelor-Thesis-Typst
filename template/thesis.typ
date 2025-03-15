@@ -38,14 +38,12 @@
   ……
 
   (注：标题黑体小二号，正文宋体小四，行距20磅)
-
 ][
   The content of the abstract requires the author to briefly introduce the main content of this paper, mainly for my work and innovation.
 
   …….
 
   (Times New Roman，小四号，行距20磅)
-
 ]
 
 #outline()
