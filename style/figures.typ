@@ -124,7 +124,10 @@
                 set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
                 line(start:(-5pt,0pt),length: 100%+10pt)
                 v(-0.5em)
-                [#ref(head-label)#h(1em)#caption]
+                [
+                  #set par(first-line-indent: 0em)
+                  #ref(head-label)#h(1em)#caption
+                ]
                 nxt.update(true)
               }
             },
