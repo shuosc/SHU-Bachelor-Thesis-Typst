@@ -1,11 +1,11 @@
 [package]
-name = "modern-shu-thesis"
-version = "0.3.2"
+name = "shuoc-shu-thesis"
+version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["XY_cpp"]
+authors = ["shuoc"]
 license = "Apache-2.0"
-description = "上海大学本科毕业论文模板"
-repository = "https://github.com/XY-cpp/typst-shu-thesis"
+description = "基于Typst的上海大学毕业论文模板"
+repository = "https://github.com/shuosc/SHU-Bachelor-Thesis-Typst"
 keywords = ["Shanghai University", "Thesis"]
 categories = ["thesis"]
 exclude = ["imgs"]
