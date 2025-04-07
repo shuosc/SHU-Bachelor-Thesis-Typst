@@ -1,5 +1,5 @@
 [package]
-name = "shuosc-shu-thesis"
+name = "shuosc-shu-bachelor-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["shuosc"]
