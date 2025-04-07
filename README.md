@@ -1,5 +1,7 @@
 # 上海大学本科生毕业论文Typst模板
 
+由上交的模板修改而来: [typst-sjtu-thesis-master](https://github.com/tzhTaylor/typst-sjtu-thesis-master)
+
 这是上海大学本科生学位论文的Typst 模板
 ，它能够简洁、快速、持续生成 PDF 格式的毕业论文，它基于本科生院官方提供的模板进行开发。基于本科生院提供的 [word 模板](https://cj.shu.edu.cn/DataInterface/上海大学本科毕业论文（设计）撰写格式模板.pdf) 进行开发。
 
@@ -43,10 +45,10 @@ Typst 提供了官方的 Web App，支持像 Overleaf 一样在线编辑。
 
 ## License
 
-本项目采用 Apache 许可证。
+本项目采用 Apache 许可证（详见[LICENSE](./LICENSE)） 和 MIT 许可证（third-party, 详见[LICENSE-MIT](./LICENSE-MIT)）。
 
 图片 `assets/cover.png` `assets/under-cover.png`：由上海大学提供，版权归上海大学所有，仅限本毕业设计使用。
 
-This project is licensed under the Apache License.
+This project is licensed under the Apache License (see [LICENSE](./LICENSE)) and MIT License (third-party, see [LICENSE-MIT](./LICENSE-MIT)).
 
 The images `assets/cover.png` and `assets/under-cover.png` are provided by Shanghai University, and the copyright is owned by Shanghai University. They are for use only in this graduation project.
