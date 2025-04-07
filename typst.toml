@@ -1,8 +1,8 @@
 [package]
-name = "shuoc-shu-thesis"
+name = "shuosc-shu-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["shuoc"]
+authors = ["shuosc"]
 license = "Apache-2.0"
 description = "基于Typst的上海大学毕业论文模板"
 repository = "https://github.com/shuosc/SHU-Bachelor-Thesis-Typst"
