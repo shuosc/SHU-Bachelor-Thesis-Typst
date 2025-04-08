@@ -50,6 +50,15 @@
     leading: 0.3em,
   )
 
+  show raw: it => {
+    set par(
+      first-line-indent: (amount: 0em, all: true),
+      spacing: 0.3em,
+      leading: 0.3em,
+    )
+    it
+  }
+
   show: show-cn-fakebold
   show: figures
   show: enums

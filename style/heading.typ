@@ -46,6 +46,7 @@
     } else if it.level == 2 {
       set text(weight: "regular", size: zihao.sihao)
       counter(heading).display() + h(0.5em) + it.body
+      counter(math.equation).update(0)
     } else {
       set text(weight: "regular", size: zihao.xiaosi)
       counter(heading).display() + h(0.5em) + it.body

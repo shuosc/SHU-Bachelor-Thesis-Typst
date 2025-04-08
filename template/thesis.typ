@@ -38,14 +38,12 @@
   ……
 
   (注：标题黑体小二号，正文宋体小四，行距20磅)
-
 ][
   The content of the abstract requires the author to briefly introduce the main content of this paper, mainly for my work and innovation.
 
   …….
 
   (Times New Roman，小四号，行距20磅)
-
 ]
 
 #outline()
@@ -185,6 +183,25 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
     ),
   )
 ]
+
+也可以直接插入代码：
+#algox(
+  label-name: "algorithm-1",
+  caption: [欧几里得辗转相除C++实现],
+  [
+    ```cpp
+    #include <bits/stdc++.h>
+    using namespace std;
+    int gcd(int a, int b) {
+      while (a != b) {
+        if (a > b) a -= b;
+        else b -= a;
+      }
+      return a;
+    }
+    ```
+  ],
+)
 
 == 本章小结
 
