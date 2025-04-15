@@ -30,20 +30,26 @@ inside the brackets. For example:
 ## 3. Environment
 
 <!--
-If you have run the code, please provide the environment information.
-
 For example:
 
-| Software             | Version        |
-| -------------------- | -------------- |
-| OS / Docker Image    | Windows 11     |
-| Tex                  | TexLive 2024   |
+| Software      | Version |
+| ------------- | ------- |
+| Typst         | 0.13.10 |
+
+[NOTE]:
+If you use a local compiler, you need to provide the typst version information. Typically, if you use VSCode + Tinymist Typst, do the following steps to get the version:
+
+1. Open the command palette (Ctrl + Shift + P).
+2. Type "Typst: Tinymist: Show log" and press Enter.
+3. Scroll to the top of the log and find `tinymist version information: [..., ["Typst Version", "<version>"], ...]`.
+4. Write the version in the table below.
+
+Or if you use the official online compiler at "https://typst.app/", just write "online" in the table below.
 -->
 
-| Software             | Version        |
-| -------------------- | -------------- |
-| OS / Docker Image    |                |
-| Tex                  |                |
+| Software     | Version |
+| ------------ | ------- |
+| Typst        |         |
 
 ## 4. Additional Context
 
