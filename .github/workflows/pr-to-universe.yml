@@ -1,0 +1,54 @@
+# Adapted from:
+# 1. https://github.com/typst-community/typst-package-template/blob/64726be/.github/workflows/release.yml
+#    Licensed under The Unlicense
+# 2. https://github.com/johannes-wolf/cetz/blob/35c0868/scripts/package
+#    Licensed under Apache License 2.0
+
+name: Package and push to registry repo
+on:
+  push:
+    tags: [ v* ]
+
+env:
+  TYPSHIP_VERSION: 0.4.1
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Determine and check package metadata
+        shell: bash
+        run: |
+          function read_toml() {
+            local file="$1"
+            local key="$2"
+            # Read a key value pair in the format: <key> = "<value>" stripping surrounding quotes.
+            perl -lne "print \"\$1\" if /^${key}\\s*=\\s*\"(.*)\"/" < "$file"
+          }
+
+          CWD="$(cd "$(dirname "${BASH_SOURCE[0]}")"; pwd -P)/.."
+          PKG_NAME="$(read_toml "$CWD/typst.toml" "name")"
+          PKG_VERSION="$(read_toml "$CWD/typst.toml" "version")"
+
+          echo "CWD=${CWD}" >> "${GITHUB_ENV}"
+          echo "PKG_NAME=${PKG_NAME}" >> "${GITHUB_ENV}"
+          echo "PKG_VERSION=${PKG_VERSION}" >> "${GITHUB_ENV}"
+          if [[ "${GITHUB_REF_NAME}" != "v${PKG_VERSION}" ]]; then
+            echo "package version ${PKG_VERSION} does not match release tag ${GITHUB_REF_NAME}" >&2
+            exit 1
+          fi
+
+      - name: Release package
+        shell: bash
+        run: |
+          sed -i "1s|../lib.typ|@preview/${PKG_NAME}:${PKG_VERSION}|" ${CWD}/template/thesis.typ
+          pushd /tmp
+            wget https://github.com/sjfhsjfh/typship/releases/download/v${{ env.TYPSHIP_VERSION }}/typship-x86_64-unknown-linux-gnu.tar.xz
+            tar -xf /tmp/typship-x86_64-unknown-linux-gnu.tar.xz
+            cp /tmp/typship-x86_64-unknown-linux-gnu/typship /usr/local/bin
+          popd
+          printf "${{ secrets.TYPST_PACKAGES_TOKEN }}" | typship login universe
+          expect ./github/workflows/scripts/typship-push-universe.expect
