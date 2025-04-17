@@ -1,0 +1,5 @@
+set token [lindex $argv 0]
+spawn typship login universe
+expect "token:"
+send "$token\r"
+expect eof

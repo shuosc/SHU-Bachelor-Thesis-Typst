@@ -19,6 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y expect
+
       - name: Determine and check package metadata
         shell: bash
         run: |
@@ -29,11 +34,9 @@ jobs:
             perl -lne "print \"\$1\" if /^${key}\\s*=\\s*\"(.*)\"/" < "$file"
           }
 
-          CWD="$(cd "$(dirname "${BASH_SOURCE[0]}")"; pwd -P)/.."
-          PKG_NAME="$(read_toml "$CWD/typst.toml" "name")"
-          PKG_VERSION="$(read_toml "$CWD/typst.toml" "version")"
+          PKG_NAME="$(read_toml "./typst.toml" "name")"
+          PKG_VERSION="$(read_toml "./typst.toml" "version")"
 
-          echo "CWD=${CWD}" >> "${GITHUB_ENV}"
           echo "PKG_NAME=${PKG_NAME}" >> "${GITHUB_ENV}"
           echo "PKG_VERSION=${PKG_VERSION}" >> "${GITHUB_ENV}"
           if [[ "${GITHUB_REF_NAME}" != "v${PKG_VERSION}" ]]; then
@@ -44,11 +47,12 @@ jobs:
       - name: Release package
         shell: bash
         run: |
-          sed -i "1s|../lib.typ|@preview/${PKG_NAME}:${PKG_VERSION}|" ${CWD}/template/thesis.typ
+          sed -i "1s|../lib.typ|@preview/${PKG_NAME}:${PKG_VERSION}|" ./template/thesis.typ
           pushd /tmp
             wget https://github.com/sjfhsjfh/typship/releases/download/v${{ env.TYPSHIP_VERSION }}/typship-x86_64-unknown-linux-gnu.tar.xz
             tar -xf /tmp/typship-x86_64-unknown-linux-gnu.tar.xz
             cp /tmp/typship-x86_64-unknown-linux-gnu/typship /usr/local/bin
           popd
           printf "${{ secrets.TYPST_PACKAGES_TOKEN }}" | typship login universe
-          expect ./github/workflows/scripts/typship-push-universe.expect
+          expect ./.github/workflows/scripts/typship-login-universe.expect "${{ secrets.TYPST_PACKAGES_TOKEN }}"
+          expect ./.github/workflows/scripts/typship-push-universe.expect

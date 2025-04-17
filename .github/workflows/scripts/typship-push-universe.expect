@@ -1,5 +1,3 @@
-#!/usr/bin/expect
-
 spawn typship publish universe
 
 expect {
