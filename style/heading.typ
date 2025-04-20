@@ -1,6 +1,6 @@
 #import "font.typ": ziti, zihao
 #import "@preview/numbly:0.1.0": numbly
-
+#import "@preview/i-figured:0.2.4"
 #let none-heading(body) = {
   show heading.where(level: 1): set align(center)
   set heading(
