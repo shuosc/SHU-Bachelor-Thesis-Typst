@@ -7,7 +7,7 @@
 name: Package and push to registry repo
 on:
   push:
-    tags: [ v* ]
+    tags: [ v*.*.* ]
 
 env:
   TYPSHIP_VERSION: 0.4.1
