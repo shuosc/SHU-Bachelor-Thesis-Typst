@@ -56,6 +56,7 @@
         right
       }
     ),
+    stroke: none,
     columns: (15%, 1%, 60%),
     inset: (right: 0em),
     column-gutter: (-0.3em, 1em),

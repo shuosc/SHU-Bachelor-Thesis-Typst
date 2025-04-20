@@ -22,7 +22,7 @@
   set math.equation(supplement: [公式])
 
   set figure.caption(separator: [#h(1em)])
-  show figure: set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
+  show figure.caption: set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
   show figure.where(kind: "table"): set figure.caption(position: top)
   show figure: set block(breakable: true)
 
