@@ -52,6 +52,7 @@
       counter(heading).display() + h(0.5em) + it.body
     }
   }
+  show heading: i-figured.reset-counters.with(extra-kinds: ("image","table","algorithm",))
   body
 }
 
