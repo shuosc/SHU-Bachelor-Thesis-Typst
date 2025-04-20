@@ -49,7 +49,6 @@
 #outline()
 
 #show: mainmatter
-#show heading: i-figured.reset-counters.with(extra-kinds: ("image","table","algorithm",))
 = 绪论
 
 == 引言
