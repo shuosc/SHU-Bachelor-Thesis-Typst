@@ -8,7 +8,13 @@ description = "基于Typst的上海大学毕业论文模板"
 repository = "https://github.com/shuosc/SHU-Bachelor-Thesis-Typst"
 keywords = ["Shanghai University", "Thesis"]
 categories = ["thesis"]
-exclude = ["imgs"]
+exclude = [
+    ".gitignore",
+    ".gitattributes",
+    ".git",
+    ".github",
+    "fonts"
+]
 
 [template]
 path = "template"
