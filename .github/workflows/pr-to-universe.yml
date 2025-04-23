@@ -48,6 +48,7 @@ jobs:
         shell: bash
         run: |
           sed -i "1s|../lib.typ|@preview/${PKG_NAME}:${PKG_VERSION}|" ./template/thesis.typ
+          rm -rf ./fonts
           pushd /tmp
             wget https://github.com/sjfhsjfh/typship/releases/download/v${{ env.TYPSHIP_VERSION }}/typship-x86_64-unknown-linux-gnu.tar.xz
             tar -xf /tmp/typship-x86_64-unknown-linux-gnu.tar.xz
