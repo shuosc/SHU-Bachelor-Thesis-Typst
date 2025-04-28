@@ -49,7 +49,7 @@
   label-name: "",
   alignment: center,
 ) = {
-  let nxt = state("tablex", false)
+  let nxt = state("tablex" + label-name, false)
   [
     #let new-label = label(label-name)
     #let head-label = label("tbl:" + label-name)
@@ -92,7 +92,7 @@
   label-name: "",
   breakable: true,
 ) = {
-  let nxt = state("algox", false)
+  let nxt = state("algox" + label-name, false)
   [
     #let new-label = label(label-name)
     #let head-label = label("algo:" + label-name)
@@ -122,7 +122,7 @@
               } else {
                 set align(left)
                 set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
-                line(start:(-5pt,0pt),length: 100%+10pt)
+                line(start: (-5pt, 0pt), length: 100% + 10pt)
                 v(-0.5em)
                 [
                   #set par(first-line-indent: 0em)
