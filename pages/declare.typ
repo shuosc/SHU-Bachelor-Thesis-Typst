@@ -8,11 +8,11 @@
   set text(font: ziti.songti, size: zihao.xiaosi)
   table(
     // stroke: 1pt,
-    inset: 0.6em,
-    columns: (30%, 28%, 18%, 19%),
+    inset: (x: 0em, y: 0.6em),
+    columns: (60%,30%),
     align: left,
-    [姓#h(2em)名：], info.name, [学#h(2em)号:], info.student_id,
-    [论文题目：], table.cell(colspan: 3)[#info.title]
+    [姓#h(2em)名：#info.name], [学#h(2em)号：#info.student_id],
+    table.cell(colspan: 2)[论文题目：#info.title]
   )
   v(1.3em)
   align(center)[
