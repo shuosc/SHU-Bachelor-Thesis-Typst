@@ -150,6 +150,8 @@
 
 $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Alpha) + J_0 = 0 $<equation>
 
+#h(-2em)其中$mu$是材料的磁导率，$sigma$是材料的电导率，$omega$是电磁波的角频率，$Alpha$是电磁场的矢量位，$J_0$是电流密度。使用```typst #h(-2em)```取消这一行前面的缩进。
+
 == 算法格式
 我要引用 @algo:algorithm
 
