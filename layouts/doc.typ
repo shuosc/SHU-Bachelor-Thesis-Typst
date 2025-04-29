@@ -50,7 +50,7 @@
     leading: 0.3em,
   )
 
-  show raw: it => {
+  show raw.where(block: true): it => {
     set par(
       first-line-indent: (amount: 0em, all: true),
       spacing: 0.3em,
