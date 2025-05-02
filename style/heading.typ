@@ -31,7 +31,7 @@
       "{1}.{2}.{3}",
       "{1}.{2}.{3}.{4}",
     ),
-    supplement: "main",
+    supplement: "正文",
   )
   show heading: it => {
     set text(font: ziti.heiti)
@@ -65,7 +65,7 @@
       "附{1:A}{2}.{3} ",
       "附{1:A}{2}.{3}.{4} ",
     ),
-    supplement: "appendix",
+    supplement: none,
   )
   counter(heading).update(0)
   show heading.where(level: 1): set align(center)

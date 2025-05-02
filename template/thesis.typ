@@ -204,6 +204,12 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   ],
 )
 
+== 章节引用<main_test>
+
+我要引用 @main_test
+
+也可以引用 @appendix_test_1.1
+
 == 本章小结
 
 本章介绍了……
@@ -252,7 +258,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 )<image2>
 ......
 
-=== 测试1.1
+=== 测试1.1  <appendix_test_1.1>
 
 #figure(
   image(
