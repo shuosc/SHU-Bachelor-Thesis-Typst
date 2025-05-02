@@ -6,7 +6,7 @@
   show outline.entry: it => {
     if it.level == 1 {
       set text(font: ziti.heiti, size: 14pt)
-      if it.element.supplement == [main] {
+      if it.element.supplement == [正文] {
         strong(it)
       } else {
         it
