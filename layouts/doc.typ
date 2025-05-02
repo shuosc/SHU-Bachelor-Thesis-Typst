@@ -32,6 +32,8 @@
           "上海大学本科毕业论文（设计）",
           font: ziti.songti,
           size: zihao.wuhao,
+          top-edge: 0.8em,
+          bottom-edge: -0.2em,
         ),
       )
     },
@@ -41,8 +43,8 @@
   set text(
     font: ziti.songti,
     size: zihao.xiaosi,
-    top-edge: "ascender",
-    bottom-edge: "descender",
+    top-edge: 0.8em,
+    bottom-edge: -0.2em,
   )
   set par(
     first-line-indent: (amount: 2em, all: true),
