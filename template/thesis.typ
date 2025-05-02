@@ -213,7 +213,11 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 ]
 
 // 参考文献
-#bib(bibfunc: bibliography("ref.bib")) // full: false 表示只显示已引用的文献，不显示未引用的文献；true 表示显示所有文献
+#bib(
+  bibfunc: bibliography("ref.bib"),
+  full: false, // false表示只显示已引用的文献，不显示未引用的文献；true表示显示所有文献
+  sup: true,  // false表示行内标注为上角标；true表示行内标注占据整行
+)
 
 #show: appendix
 

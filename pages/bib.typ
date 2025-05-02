@@ -3,14 +3,18 @@
 #let bibliography-page(
   bibfunc: none,
   full: true,
+  sup: true,
 ) = {
   pagebreak(weak: true)
   show: none-heading
   set bibliography(
     title: "参考文献",
-    style: "gb-7714-2015-numeric",
+    // 复制自: https://github.com/citation-style-language/styles/blob/master/china-national-standard-gb-t-7714-2015-numeric.csl
+    // 根据学校的模板，移除了427行的vertical-align="sup"
+    style: if sup {"gb-7714-2015-numeric"} else {"../assets/citation-style.csl"},
     full: full,
   )
+
 
   show selector(bibliography): it => {
     show regex("\[\d+\]"): num => context {

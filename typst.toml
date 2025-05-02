@@ -1,6 +1,6 @@
 [package]
 name = "shuosc-shu-bachelor-thesis"
-version = "0.1.3"
+version = "0.1.4"
 entrypoint = "lib.typ"
 authors = ["shuosc"]
 license = "Apache-2.0"
