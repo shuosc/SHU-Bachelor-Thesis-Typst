@@ -1,4 +1,4 @@
-#import "../lib.typ": documentclass, algox, tablex
+#import "../lib.typ": documentclass, algox, tablex, citex
 
 #let (
   info,
@@ -95,10 +95,6 @@
 == 结论
 结论是毕业论文的总结，是整篇论文的归宿。应精炼、准确、完整。着重阐述自己的创造性成果及其在本研究领域中的意义、作用，还可进一步提出需要讨论的问题和建议。
 
-
-
-
-
 = 图表格式
 
 == 图格式
@@ -114,12 +110,7 @@
 
 #v(1.5em)
 
-// 图的引用请以 img 开头
-如 @img:image 所示，......
-
 == 表格格式
-// 表的引用请以 tbl 开头
-我们来看 @tbl:table，
 
 可以续表:
 \
@@ -145,18 +136,13 @@
 
 == 公式格式
 
-// 公式的引用请以 eqt 开头
-我要引用 @eqt:equation。
-
 $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Alpha) + J_0 = 0 $<equation>
 
 #h(-2em)其中$mu$是材料的磁导率，$sigma$是材料的电导率，$omega$是电磁波的角频率，$Alpha$是电磁场的矢量位，$J_0$是电流密度。使用```typst #h(-2em)```取消这一行前面的缩进。
 
 == 算法格式
-我要引用 @algo:algorithm
-
 算法也可以续：
-#v(10em)
+#v(15em)
 #[
   #import "@preview/lovelace:0.2.0": *
   #algox(
@@ -204,15 +190,84 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   ],
 )
 
+= 引用格式
+
+== 常规引用
+
+#tablex(
+  header: (
+    [引用对象],
+    [效果],
+    [原始代码],
+  ),
+  [表格],
+  [我要引用@tbl:table],
+  [```typst 我要引用@tbl:table```],
+  [图片],
+  [我要引用@img:image],
+  [```typst 我要引用@img:image```],
+  [算法],
+  [我要引用@algo:algorithm],
+  [```typst 我要引用@algo:algorithm```],
+  [公式],
+  [我要引用@eqt:equation],
+  [```typst 我要引用@eqt:equation```],
+  columns: (1fr, 1fr, 1fr),
+  colnum: 3,
+  caption: [常规引用示例表],
+  label-name: "table1",
+)
+
+另一种函数引用方法: ```typst #ref(<img:image>)```
+
 == 章节引用<main_test>
 
-我要引用 @main_test
+我要引用@main_test：```typst 我要引用@main_test ```
 
-也可以引用 @appendix_test_1.1
+我要引用#ref(<appendix_test_1.1>)：```typst 我要引用@main_test```
 
-== 本章小结
+== 页面引用
+请注意#ref(<jump>,form:"page") 的```typst #bib```函数，它的`sup`参数在下一节会用到。
 
-本章介绍了……
+== 文献引用
+
+#tablex(
+  header: (
+    [引用对象],
+    [效果],
+    [原始代码],
+  ),
+  [句子末尾引用],
+  [Typst很厉害@liu_survey_2024],
+  [```typst Typst很厉害@liu_survey_2024```],
+
+  [句子末尾引用],
+  [Typst很厉害#citex(<liu_survey_2024>)],
+  [```typst Typst很厉害#citex(<liu_survey_2024>)```],
+
+  [句子内部引用],
+  [文献#citex(<liu_survey_2024>,sup:false)说Typst很厉害],
+  text(0.7em)[```typst 文献#citex(<liu_survey_2024>,sup:false) 说Typst很厉害```],
+
+  table.hline(stroke: 0.2pt),
+
+  [用别的格式的引用(自行查阅参数)],
+  [#citex(<liu_survey_2024>,style: "future-science", form:"prose")\ 这些人说的],
+  text(0.8em)[```typst #citex(<liu_survey_2024>,style: "future-science", form:"prose")
+  \ 这些人说的```],
+
+  alignment: left+horizon,
+  columns: (1fr, 1.5fr, 2fr),
+  colnum: 3,
+  caption: [文献引用示例表],
+  label-name: "table2",
+)
+
+当```typst #bib```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认不为右上标；
+
+当```typst #bib```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认为右上标。
+
+使用别的格式时`sup`失效。
 
 #conclusion[
   结论是毕业论文的总结，是整篇论文的归宿。应精炼、准确、完整。着重阐述自己的创造性成果及其在本研究领域中的意义、作用，还可进一步提出需要讨论的问题和建议。
@@ -222,8 +277,8 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 #bib(
   bibfunc: bibliography("ref.bib"),
   full: false, // false表示只显示已引用的文献，不显示未引用的文献；true表示显示所有文献
-  sup: true,  // false表示行内标注为上角标；true表示行内标注占据整行
-)
+  sup: true, // true表示行内标注默认为上角标；false表示行内标注默认占据整行
+)<jump>
 
 #show: appendix
 
@@ -258,7 +313,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 )<image2>
 ......
 
-=== 测试1.1  <appendix_test_1.1>
+=== 测试1.1 <appendix_test_1.1>
 
 #figure(
   image(
