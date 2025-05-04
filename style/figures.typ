@@ -57,6 +57,7 @@
     #figure(
       table(
         columns: columns,
+        align: alignment,
         table.header(
           table.cell(
             colspan: colnum,
