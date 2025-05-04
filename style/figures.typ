@@ -7,7 +7,7 @@
   show figure: set align(center)
   show table: set align(center)
 
-  show heading: i-figured.reset-counters.with(extra-kinds: ("image",))
+  show heading: i-figured.reset-counters.with(extra-kinds: ("image", "table", "algorithm"))
   show figure: i-figured.show-figure.with(
     extra-prefixes: (
       image: "img:",
