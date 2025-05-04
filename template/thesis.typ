@@ -242,8 +242,8 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   [```typst Typst很厉害@liu_survey_2024```],
 
   [句子末尾引用],
-  [Typst很厉害#citex(<liu_survey_2024>)],
-  [```typst Typst很厉害#citex(<liu_survey_2024>)```],
+  [Typst很厉害#citex(<test>)],
+  [```typst Typst很厉害#citex(<test>)```],
 
   [句子内部引用],
   [文献#citex(<liu_survey_2024>,sup:false)说Typst很厉害],
