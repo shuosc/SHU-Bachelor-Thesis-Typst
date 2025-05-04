@@ -61,6 +61,8 @@
     it
   }
 
+  show ref.where(form: "page"): set ref(supplement: [页])
+
   show: show-cn-fakebold
   show: figures
   show: enums
