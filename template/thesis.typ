@@ -98,6 +98,7 @@
 = 图表格式
 
 == 图格式
+=== 单张图片
 #figure(
   image(
     "figures/energy-distribution.png",
@@ -105,8 +106,39 @@
   ),
   kind: "image",
   supplement: [图],
-  caption: [Energy distribution along radial], // 英文图例
+  caption: [energy distribution along radial], // 英文图例
 )<image>
+
+=== 多个子图
+#figure(
+  block(breakable: false)[  // 控制是否跨页
+    #grid(
+      rows: (auto, auto),  // 2 行
+      columns: (auto, auto),  // 2 列
+      row-gutter: 1em,
+      column-gutter: 1em,
+      [ 
+        #figure(image("figures/energy-distribution.png", width: 100%))
+        #text()[(a) 子图 a]
+      ],
+      [ 
+        #figure(image("figures/energy-distribution.png", width: 100%))
+        #text()[(b) 子图 b]
+      ],
+      [ 
+        #figure(image("figures/energy-distribution.png", width: 100%))
+        #text()[(c) 子图 c]
+      ],
+      [ 
+        #figure(image("figures/energy-distribution.png", width: 100%))
+        #text()[(d) 子图 d]
+      ],
+    ),
+  ],
+  kind: "image",
+  supplement: [图],
+  caption: [多个子图的例子],
+)<subfigures>
 
 #v(1.5em)
 
@@ -203,9 +235,14 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   [表格],
   [我要引用@tbl:table],
   [```typst 我要引用@tbl:table```],
-  [图片],
+  table.cell(
+    rowspan: 2,
+    align: horizon,
+  )[图片],
   [我要引用@img:image],
   [```typst 我要引用@img:image```],
+  [我要引用@img:subfigures (a)],
+  [```typst 我要引用@img:subfigures (a)```],
   [算法],
   [我要引用@algo:algorithm],
   [```typst 我要引用@algo:algorithm```],
