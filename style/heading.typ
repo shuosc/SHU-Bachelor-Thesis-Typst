@@ -40,12 +40,14 @@
       set align(center)
       set text(weight: "bold", size: zihao.xiaoer)
       pagebreak(weak: true)
-      v(15pt)
+      v(0.8em)
       counter(heading).display() + h(0.5em) + it.body
-      v(15pt)
+      v(0.5em)
     } else if it.level == 2 {
       set text(weight: "regular", size: zihao.sihao)
+      v(0.5em)
       counter(heading).display() + h(0.5em) + it.body
+      v(0.5em)
       counter(math.equation).update(0)
     } else {
       set text(weight: "regular", size: zihao.xiaosi)
