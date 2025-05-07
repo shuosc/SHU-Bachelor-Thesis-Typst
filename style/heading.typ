@@ -35,7 +35,7 @@
   )
   show heading: it => {
     set text(font: ziti.heiti)
-    set par(first-line-indent: 0em)
+    set par(first-line-indent: 0em, spacing: 0em)
     if it.level == 1 {
       set align(center)
       set text(weight: "bold", size: zihao.xiaoer)
@@ -45,10 +45,13 @@
       v(15pt)
     } else if it.level == 2 {
       set text(weight: "regular", size: zihao.sihao)
+      v(0.8em)
       counter(heading).display() + h(0.5em) + it.body
+      v(0.8em)
       counter(math.equation).update(0)
     } else {
       set text(weight: "regular", size: zihao.xiaosi)
+      v(0.5em)
       counter(heading).display() + h(0.5em) + it.body
     }
   }
@@ -71,7 +74,7 @@
   show heading.where(level: 1): set align(center)
   show heading: it => {
     set text(font: ziti.heiti)
-    set par(first-line-indent: 0em)
+    set par(first-line-indent: 0em, spacing: 0em)
     if it.level == 1 {
       set text(weight: "bold", size: zihao.xiaoer)
       pagebreak(weak: true)
@@ -80,9 +83,12 @@
       v(15pt)
     } else if it.level == 2 {
       set text(weight: "regular", size: zihao.sihao)
+      v(0.8em)
       counter(heading).display() + h(0.5em) + it.body
+      v(0.8em)
     } else {
       set text(weight: "regular", size: zihao.xiaosi)
+      v(0.5em)
       counter(heading).display() + h(0.5em) + it.body
     }
   }
