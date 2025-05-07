@@ -35,19 +35,19 @@
   )
   show heading: it => {
     set text(font: ziti.heiti)
-    set par(first-line-indent: 0em)
+    set par(first-line-indent: 0em, spacing: 0em)
     if it.level == 1 {
       set align(center)
       set text(weight: "bold", size: zihao.xiaoer)
       pagebreak(weak: true)
-      v(0.8em)
+      v(15pt)
       counter(heading).display() + h(0.5em) + it.body
-      v(0.5em)
+      v(15pt)
     } else if it.level == 2 {
       set text(weight: "regular", size: zihao.sihao)
-      v(0.5em)
+      v(0.8em)
       counter(heading).display() + h(0.5em) + it.body
-      v(0.5em)
+      v(0.8em)
       counter(math.equation).update(0)
     } else {
       set text(weight: "regular", size: zihao.xiaosi)
