@@ -3,7 +3,6 @@
 #import "../style/uline.typ": uline
 
 #let cover-page(
-  date: datetime.today(),
   info: (:),
 ) = {
   set page(
