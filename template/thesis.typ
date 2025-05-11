@@ -1,4 +1,4 @@
-#import "../lib.typ": documentclass, algox, tablex, citex
+#import "../lib.typ": documentclass, algox, tablex, citex, imagex, subimagex
 
 #let (
   info,
@@ -99,55 +99,32 @@
 
 == 图格式
 === 单张图片
-#figure(
-  image(
-    "figures/energy-distribution.png",
-    width: 70%,
-  ),
-  kind: "image",
-  supplement: [图],
-  caption: [energy distribution along radial], // 英文图例
-)<image>
+#imagex(
+  image("figures/energy-distribution.png", width: 70%),
+  caption: [energy distribution along radial],
+  label-name: "image",
+)
 
 === 多个子图
-#figure(
-  block(breakable: false)[  // 控制是否跨页
-    #grid(
-      rows: (auto, auto),  // 2 行
-      columns: (auto, auto),  // 2 列
-      row-gutter: 1em,
-      column-gutter: 1em,
-      [ 
-        #figure(image("figures/energy-distribution.png", width: 100%))
-        #text()[(a) 子图 a]
-      ],
-      [ 
-        #figure(image("figures/energy-distribution.png", width: 100%))
-        #text()[(b) 子图 b]
-      ],
-      [ 
-        #figure(image("figures/energy-distribution.png", width: 100%))
-        #text()[(c) 子图 c]
-      ],
-      [ 
-        #figure(image("figures/energy-distribution.png", width: 100%))
-        #text()[(d) 子图 d]
-      ],
-    ),
-  ],
-  kind: "image",
-  supplement: [图],
-  caption: [多个子图的例子],
-)<subfigures>
+#imagex(
+  subimagex(
+    image("figures/energy-distribution.png", width: 70%),
+    caption: "子图a",
+    label-name: "test"
+  ),
+  subimagex(image("figures/energy-distribution.png", width: 70%)),
+  subimagex(image("figures/energy-distribution.png", width: 70%)),
+  subimagex(image("figures/energy-distribution.png", width: 70%)),
+  columns: 2,
+  caption: [energy distribution along radial],
+  label-name: "subfigures",
+)
 
-#v(1.5em)
-
+#pagebreak()
 == 表格格式
 
 可以续表:
-\
-\
-\
+#v(30em)
 
 #tablex(
   ..for i in range(15) {
@@ -160,15 +137,13 @@
     [感应圈与零件间隙 #linebreak() (mm)],
   ),
   columns: (1fr, 1fr, 1fr, 1fr),
-  colnum: 4,
   caption: [66666666],
   label-name: "table",
-)
-
+)<what>
 
 == 公式格式
 
-$ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Alpha) + J_0 = 0 $<equation>
+$ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times Alpha) + J_0 = 0 $<equation>
 
 #h(-2em)其中$mu$是材料的磁导率，$sigma$是材料的电导率，$omega$是电磁波的角频率，$Alpha$是电磁场的矢量位，$J_0$是电流密度。使用```typst #h(-2em)```取消这一行前面的缩进。
 
@@ -180,6 +155,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   #algox(
     label-name: "algorithm",
     caption: [欧几里得辗转相除],
+    breakable: true,
     pseudocode(
       no-number,
       [#h(-1.25em) *input:* integers $a$ and $b$],
@@ -205,7 +181,6 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 
 也可以直接插入代码：
 #algox(
-  label-name: "algorithm-1",
   caption: [欧几里得辗转相除C++实现],
   [
     ```cpp
@@ -241,8 +216,8 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   )[图片],
   [我要引用@img:image],
   [```typst 我要引用@img:image```],
-  [我要引用@img:subfigures (a)],
-  [```typst 我要引用@img:subfigures (a)```],
+  [我要引用@img:subfigures:test],
+  [```typst 我要引用@img:subfigures:test```],
   [算法],
   [我要引用@algo:algorithm],
   [```typst 我要引用@algo:algorithm```],
@@ -250,7 +225,6 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   [我要引用@eqt:equation],
   [```typst 我要引用@eqt:equation```],
   columns: (1fr, 1fr, 1fr),
-  colnum: 3,
   caption: [常规引用示例表],
   label-name: "table1",
 )
@@ -264,7 +238,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 我要引用#ref(<appendix_test_1.1>)：```typst 我要引用@main_test```
 
 == 页面引用
-请注意#ref(<jump>,form:"page") 的```typst #bib```函数，它的`sup`参数在下一节会用到。
+请注意#ref(<jump>, form: "page") 的```typst #bib```函数，它的`sup`参数在下一节会用到。
 
 == 文献引用
 
@@ -283,19 +257,18 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   [```typst Typst很厉害#citex(<test>)```],
 
   [句子内部引用],
-  [文献#citex(<liu_survey_2024>,sup:false)说Typst很厉害],
+  [文献#citex(<liu_survey_2024>, sup: false)说Typst很厉害],
   text(0.7em)[```typst 文献#citex(<liu_survey_2024>,sup:false) 说Typst很厉害```],
 
   table.hline(stroke: 0.2pt),
 
   [用别的格式的引用(自行查阅参数)],
-  [#citex(<liu_survey_2024>,style: "future-science", form:"prose")\ 这些人说的],
+  [#citex(<liu_survey_2024>, style: "future-science", form: "prose")\ 这些人说的],
   text(0.8em)[```typst #citex(<liu_survey_2024>,style: "future-science", form:"prose")
-  \ 这些人说的```],
+    \ 这些人说的```],
 
-  alignment: left+horizon,
+  alignment: left + horizon,
   columns: (1fr, 1.5fr, 2fr),
-  colnum: 3,
   caption: [文献引用示例表],
   label-name: "table2",
 )
@@ -348,6 +321,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
   supplement: [图],
   caption: [Energy distribution along radial], // 英文图例
 )<image2>
+
 ......
 
 === 测试1.1 <appendix_test_1.1>
@@ -375,7 +349,10 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1/mu) times (nabla times Al
 
 ......
 
-#acknowledgement(location: "上海大学")[
+#acknowledgement(
+  location: "上海大学",
+  date: none, // 日期为空则默认为当天
+)[
   表达真情实感即可。
 
   （致谢部分切勿照搬，本部分内容也在论文查重范围之内）
