@@ -46,10 +46,15 @@
   (Times New Roman，小四号，行距20磅)
 ]
 
-#outline()
+#outline(
+  compact: false // true目录是紧凑的形式；false按照学校的方式
+) 
 
-#show: mainmatter.with(math-level: 1)
-= 绪论
+#show: mainmatter.with(
+  math-level: 1 // 选择不同的公式编号层级（不同的老师有不同的要求）
+)
+
+= 章节一
 
 == 引言
 
