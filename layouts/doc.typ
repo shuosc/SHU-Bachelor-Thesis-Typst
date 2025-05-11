@@ -1,7 +1,6 @@
 #import "../style/font.typ": ziti, zihao
 #import "../style/figures.typ": figures
 #import "../style/enums.typ": enums
-#import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/i-figured:0.2.4"
 
 // 文稿设置，可以进行一些像页面边距这类的全局设置
@@ -55,7 +54,7 @@
 
   show ref.where(form: "page"): set ref(supplement: [页])
 
-  show: show-cn-fakebold
+  show: figures
   show: enums
 
   set document(
