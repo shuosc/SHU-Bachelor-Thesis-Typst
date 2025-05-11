@@ -23,44 +23,81 @@
 
   set figure.caption(separator: [#h(1em)])
   show figure.caption: set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
-  show figure.where(kind: "table"): set figure.caption(position: top)
-  show figure: set block(breakable: true)
 
-  show table: set text(size: zihao.wuhao, weight: "regular")
-  set table(
-    stroke: (x, y) => {
-      if y == 0 {
-        none
-      } else {
-        none
-      }
-    },
-  )
+  show figure.where(kind: "subimage"): it => {
+    if it.kind == "subimage" {
+      let q = query(figure.where(outlined: true).before(it.location())).last()
+      [
+        #figure(
+          it.body,
+          caption: it.counter.display("(a)") + it.caption.body,
+          kind: it.kind + "_",
+          supplement: it.supplement,
+          outlined: it.outlined,
+          numbering: "(a)",
+        )#label(str(q.label) + ":" + str(it.label))
+      ]
+    }
+  }
+
+  show figure.where(kind: "subimage_"): it => {
+    let q = query(selector(figure).before(it.location())).last()
+    if (q.kind == "image") {
+      it.counter.update(0)
+    }
+    it
+  }
+
+  show ref: it => {
+    if it.element != none and it.element.func() == figure and it.element.kind == "subimage_" {
+      let q = query(figure.where(outlined: true).before(it.target)).last()
+      ref(q.label)
+    }
+    it
+  }
+
   body
 }
 
 #let tablex(
   ..body,
   header: (),
+  alignment: auto,
+  column-gutter: auto,
   columns: auto,
+  fill: none,
+  gutter: auto,
+  inset: 0% + 5pt,
+  row-gutter: auto,
   rows: auto,
-  colnum: int,
-  caption: none,
+  stroke: 1pt + black,
+  caption: auto,
+  breakable: true,
   label-name: "",
-  alignment: center,
-) = {
+) = context {
+  set figure.caption(position: top)
+  show table: set text(size: zihao.wuhao, weight: "regular")
+  set table(stroke: none)
+  let prefix = "tablex-none-label"
+  let none-label = state(prefix, 0)
+  let label-name = label-name
+  if label-name == "" {
+    let id = int(none-label.get())
+    label-name = str("~" + prefix + "-" + str(id))
+    none-label.update(id + 1)
+  }
   let nxt = state("tablex" + label-name, false)
+  let new-label = label(label-name)
+  let head-label = label("tbl:" + label-name)
   [
-    #let new-label = label(label-name)
-    #let head-label = label("tbl:" + label-name)
-    #set figure.caption(position: top)
+    #show figure: set block(breakable: breakable)
     #figure(
       table(
         columns: columns,
         align: alignment,
         table.header(
           table.cell(
-            colspan: colnum,
+            colspan: if type(columns) == type(int) { columns } else { columns.len() },
             {
               context if nxt.get() {
                 set align(left)
@@ -92,52 +129,114 @@
   caption: none,
   label-name: "",
   breakable: true,
-) = {
+) = context {
+  let prefix = "algox-none-label"
+  let none-label = state(prefix, 0)
+  let label-name = label-name
+  if label-name == "" {
+    let id = int(none-label.get())
+    label-name = str("~" + prefix + "-" + str(id))
+    none-label.update(id + 1)
+  }
+  let new-label = label(label-name)
+  let head-label = label("algo:" + label-name)
   let nxt = state("algox" + label-name, false)
+  set par(leading: 23pt - 1em, spacing: 23pt - 1em)
   [
-    #let new-label = label(label-name)
-    #let head-label = label("algo:" + label-name)
 
-    #context {
-      [
-        #figure(
-          [],
-          kind: "algorithm",
-          supplement: [算法],
-        )#new-label
-        #v(-1.25em)
-      ]
+    #figure(
+      [],
+      kind: "algorithm",
+      supplement: [算法],
+    )#new-label
+    #v(-1.5em)
+  ]
+  set table(stroke: none)
+  // show figure: set block(breakable: breakable)
+  show figure: set block(breakable: true)
 
-      table(
-        columns: 1fr,
-        align: left,
-        table.header(
-          table.cell(
-            colspan: 1,
-            {
-              context if nxt.get() {
-                set align(left)
-                set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
-                [续#ref(head-label)]
-                nxt.update(false)
-              } else {
-                set align(left)
-                set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
-                line(start: (-5pt, 0pt), length: 100% + 10pt)
-                v(-0.5em)
-                [
-                  #set par(first-line-indent: 0em)
-                  #ref(head-label)#h(1em)#caption
-                ]
-                nxt.update(true)
-              }
-            },
-          ),
-          table.hline(),
+  figure(
+    table(
+      columns: 1fr,
+      align: left,
+      table.header(
+        table.cell(
+          colspan: 1,
+          {
+            context if nxt.get() {
+              set align(left)
+              set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
+              [续#ref(head-label)]
+              nxt.update(false)
+            } else {
+              set align(left)
+              set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
+              line(start: (-5pt, 0pt), length: 100% + 10pt)
+              v(-0.5em)
+              [
+                #set par(first-line-indent: 0em)
+                #ref(head-label)#h(1em)#caption
+              ]
+              nxt.update(true)
+            }
+          },
         ),
-        content,
-        table.hline()
-      )
-    }
+        table.hline(),
+      ),
+      content,
+      table.hline()
+    ),
+  )
+}
+
+#let subimagex(
+  body,
+  caption: "",
+  label-name: "",
+) = context {
+  let prefix = "subimagex-none-label"
+  let none-label = state(prefix, 0)
+  let label-name = label-name
+  if label-name == "" {
+    let id = int(none-label.get())
+    label-name = str("~" + prefix + "-" + str(id))
+    none-label.update(id + 1)
+  }
+  let new-label = label(label-name)
+  [
+    #figure(
+      body,
+      caption: caption,
+      kind: "subimage",
+      supplement: none,
+      numbering: "(a)",
+      outlined: false,
+    )#new-label
+  ]
+}
+
+#let imagex(
+  ..body,
+  caption: auto,
+  columns: auto,
+  breakable: false,
+  label-name: "",
+) = context {
+  let prefix = "subimagex-none-label"
+  let none-label = state(prefix, 0)
+  let label-name = label-name
+  if label-name == "" {
+    let id = int(none-label.get())
+    label-name = str("~" + prefix + "-" + str(id))
+    none-label.update(id + 1)
+  }
+  let new-label = label(label-name)
+  [
+    #figure(
+      grid(..body, columns: columns, row-gutter: 1em),
+      caption: caption,
+      kind: "image",
+      supplement: [图],
+    )#new-label
   ]
 }

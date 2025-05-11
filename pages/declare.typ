@@ -6,14 +6,15 @@
   info: (:),
 ) = {
   set text(font: ziti.songti, size: zihao.xiaosi)
-  table(
-    // stroke: 1pt,
-    inset: (x: 0em, y: 0.6em),
-    columns: (60%,30%),
-    align: left,
-    [姓#h(2em)名：#info.name], [学#h(2em)号：#info.student_id],
-    table.cell(colspan: 2)[论文题目：#info.title]
-  )
+  align(center)[
+    #table(
+      stroke: 0pt,
+      inset: (x: 0em, y: 0.6em),
+      columns: (60%, 30%),
+      align: left,
+      [姓#h(2em)名：#info.name], [学#h(2em)号：#info.student_id],
+      table.cell(colspan: 2)[论文题目：#info.title]
+    )]
   v(1.3em)
   align(center)[
     #set text(font: ziti.songti, size: zihao.erhao, weight: "bold")
@@ -28,7 +29,7 @@
     #linebreak()
     #linebreak()
 
-    签 名：#uline(5.5em,"")日 期：#uline(5.5em,"")
+    签 名：#uline(5.5em, "")日 期：#uline(5.5em, "")
     #linebreak()
     #linebreak()
   ]
@@ -44,7 +45,7 @@
 
     *（保密的论文在解密后应遵守此规定）* #linebreak() #linebreak()
 
-    签 名：#uline(5.5em,"")指导教师签名：#uline(5.5em,"")日 期：#uline(5.5em,"")
+    签 名：#uline(5.5em, "")指导教师签名：#uline(5.5em, "")日 期：#uline(5.5em, "")
   ]
 
   pagebreak(weak: true)

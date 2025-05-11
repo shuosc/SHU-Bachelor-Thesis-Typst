@@ -13,14 +13,6 @@
   fonts: (:),
   it,
 ) = {
-  info = (
-    (
-      title: "上海大学学位论文格式模板",
-      author: "张三",
-    )
-      + info
-  )
-
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2.5cm),
     header: context {
@@ -64,12 +56,11 @@
   show ref.where(form: "page"): set ref(supplement: [页])
 
   show: show-cn-fakebold
-  show: figures
   show: enums
 
   set document(
     title: info.title,
-    author: info.author,
+    author: info.name,
   )
 
   it

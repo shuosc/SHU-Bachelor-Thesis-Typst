@@ -3,7 +3,6 @@
 #import "../style/figures.typ": figures
 
 #let mainmatter(
-  doctype: "master",
   body,
 ) = {
   set page(numbering: "1")
