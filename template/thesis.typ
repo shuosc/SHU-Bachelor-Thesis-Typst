@@ -48,7 +48,7 @@
 
 #outline()
 
-#show: mainmatter
+#show: mainmatter.with(math-level: 1)
 = 绪论
 
 == 引言
