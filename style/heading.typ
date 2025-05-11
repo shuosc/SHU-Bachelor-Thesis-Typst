@@ -38,7 +38,7 @@
     set par(first-line-indent: 0em, spacing: 0em)
     if it.level == 1 {
       set align(center)
-      set text(weight: "bold", size: zihao.xiaoer)
+      set text(weight: "bold", size: zihao.xiaoer, stroke: 0.4pt)
       pagebreak(weak: true)
       v(15pt)
       counter(heading).display() + h(0.5em) + it.body

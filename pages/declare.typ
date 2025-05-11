@@ -36,11 +36,11 @@
   align(center)[
     #set text(font: ziti.songti, size: zihao.erhao, weight: "bold")
     本论文使用授权说明
-    #v(1.5 * 1.3em)
   ]
   [
     #set text(font: ziti.songti, size: zihao.sihao)
     #set par(justify: true, leading: 1.5 * 1.3em - 1em, spacing: 1.5 * 1.3em - 1em)
+    #v(1.5 * 1.3em)
     本人完全了解上海大学有关保留、使用学位论文的规定，即：学校有权保留论文及送交论文复印件，允许论文被查阅和借阅；学校可以公布论文的全部或部分内容。#linebreak()
 
     *（保密的论文在解密后应遵守此规定）* #linebreak() #linebreak()

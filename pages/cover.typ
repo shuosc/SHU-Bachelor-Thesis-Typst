@@ -37,7 +37,7 @@
   )
 
   let info-value(zh) = uline(
-    25em,
+    260pt,
     text(
       zh,
       font: ziti.songti,
