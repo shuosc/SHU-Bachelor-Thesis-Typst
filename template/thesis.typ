@@ -245,6 +245,8 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 == 页面引用
 请注意#ref(<jump>, form: "page") 的```typst #bib```函数，它的`sup`参数在下一节会用到。
 
+#pagebreak()
+
 == 文献引用
 
 #tablex(
@@ -278,9 +280,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
   label-name: "table2",
 )
 
-当```typst #bib```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认不为右上标；
-
-当```typst #bib```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认为右上标。
+当```typst #bib```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认不为右上标；当```typst #bib```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认为右上标。
 
 使用别的格式时`sup`失效。
 
