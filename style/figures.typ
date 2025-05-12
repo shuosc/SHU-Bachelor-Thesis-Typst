@@ -1,5 +1,18 @@
 #import "@preview/i-figured:0.2.4"
 #import "font.typ": ziti, zihao
+#let preset(
+  body,
+) = {
+  show ref: it => {
+    if it.element != none and it.element.func() == figure and it.element.kind == "subimage_" {
+      let q = query(figure.where(outlined: true).before(it.target)).last()
+      ref(q.label)
+    }
+    it
+  }
+  body
+}
+
 #let figures(
   appendix: false,
   math-level: 2,
@@ -45,14 +58,6 @@
     let q = query(selector(figure).before(it.location())).last()
     if (q.kind == "image") {
       it.counter.update(0)
-    }
-    it
-  }
-
-  show ref: it => {
-    if it.element != none and it.element.func() == figure and it.element.kind == "subimage_" {
-      let q = query(figure.where(outlined: true).before(it.target)).last()
-      ref(q.label)
     }
     it
   }
