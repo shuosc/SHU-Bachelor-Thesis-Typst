@@ -13,7 +13,7 @@
 
   align(
     center,
-    text(font: ziti.songti, size: zihao.chuhao, weight: "medium")[
+    text(font: ziti.songti, size: zihao.chuhao, stroke: 0.2pt)[
       #v(2.6em)
       本科毕业论文（设计）
     ],

@@ -13,7 +13,7 @@
   it,
 ) = {
   set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 2.5cm),
+    margin: (top: 2.8cm, bottom: 2.5cm, left: 3cm, right: 2.5cm),
     header: context {
       box(
         width: 100%,
@@ -28,7 +28,7 @@
         ),
       )
     },
-    header-ascent: 0.3cm,
+    header-ascent: 0.6cm,
   )
 
   set text(

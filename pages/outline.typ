@@ -9,7 +9,8 @@
       set text(font: ziti.heiti, size: 14pt)
       if not compact { v(0.5em) }
       if it.element.supplement == [正文] {
-        strong(it)
+        set text(stroke: 0.4pt)
+        it
       } else {
         it
       }
