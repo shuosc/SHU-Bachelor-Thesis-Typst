@@ -54,6 +54,12 @@
     "STFangSong",
   ),
   // 等宽字体，用于代码块环境，一般可以等同于英文中的 Monospaced Font
-  // 这一行分别是「Menlo(MacOS 等宽英文字体)」、「Courier New(等宽英文字体)」、「黑体（Windows）」、「黑体（MacOS）」、「华文黑体」
-  dengkuan: ("Menlo", "Courier New", "SimHei", "Heiti SC", "STHeiti"),
+  // 这一行分别是「Courier New(等宽英文字体)」、「Menlo(MacOS 等宽英文字体)」、「黑体（Windows）」、「黑体（MacOS）」、「华文黑体」
+  dengkuan: (
+    (name: "Courier New", covers: "latin-in-cjk"),
+    (name: "Menlo", covers: "latin-in-cjk"),
+    "SimHei",
+    "Heiti SC",
+    "STHeiti",
+  ),
 )

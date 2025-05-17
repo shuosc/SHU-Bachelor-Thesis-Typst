@@ -25,7 +25,9 @@
   ),
 )
 
-#show: doc
+#show: doc.with(
+  fallback: false // 为true时字体缺失时使用系统默认，不显示豆腐块
+)
 #cover()
 #declare()
 
@@ -189,6 +191,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
   caption: [欧几里得辗转相除C++实现],
   [
     ```cpp
+    嘿嘿
     #include <bits/stdc++.h>
     using namespace std;
     int gcd(int a, int b) {

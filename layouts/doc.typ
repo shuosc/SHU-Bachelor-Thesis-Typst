@@ -5,11 +5,8 @@
 
 // 文稿设置，可以进行一些像页面边距这类的全局设置
 #let doc(
-  // documentclass 传入参数
   info: (:),
-  // 其他参数
-  fallback: false, // 字体缺失时使用 fallback，不显示豆腐块
-  fonts: (:),
+  fallback: false, 
   it,
 ) = {
   set page(
@@ -36,6 +33,7 @@
     size: zihao.xiaosi,
     top-edge: 0.8em,
     bottom-edge: -0.2em,
+    fallback: fallback,
   )
   set par(
     first-line-indent: (amount: 2em, all: true),
@@ -44,6 +42,7 @@
   )
 
   show raw.where(block: true): it => {
+    set text(font:ziti.dengkuan)
     set par(
       first-line-indent: (amount: 0em, all: true),
       spacing: 0.3em,
