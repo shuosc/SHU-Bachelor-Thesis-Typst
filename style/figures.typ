@@ -21,7 +21,16 @@
   show figure: set align(center)
   show table: set align(center)
 
-  show heading: i-figured.reset-counters.with(extra-kinds: ("image", "table", "algorithm"))
+  show heading: i-figured.reset-counters.with(
+    extra-kinds: ("image", "table", "algorithm"),
+    equations: false,
+  )
+  show heading: it => {
+    if it.level <= math-level {
+      counter(math.equation).update(0)
+    }
+    it
+  }
   show figure: i-figured.show-figure.with(
     extra-prefixes: (
       image: "img:",
