@@ -45,7 +45,7 @@
     ),
   )
 
-  let quote = table.cell(inset: (top: 1em), text(stroke: 1pt)[:])
+  let quote = table.cell(inset: (top: 0.7em), text(stroke: 1pt)[:])
 
   table(
     align: (x, y) => (

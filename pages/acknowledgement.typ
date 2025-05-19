@@ -17,7 +17,7 @@
   info.name
   linebreak()
   location
-  linebreak()
+  set align(right)
   if date == none {
     datetime.today().display("[year]年[month]月[day]日")
   } else {
