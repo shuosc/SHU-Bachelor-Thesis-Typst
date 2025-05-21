@@ -41,14 +41,18 @@
     leading: 0.3em,
   )
 
-  show raw.where(block: true): it => {
-    set text(font: ziti.dengkuan)
-    set par(
-      first-line-indent: (amount: 0em, all: true),
-      spacing: 0.3em,
-      leading: 0.3em,
-    )
-    it
+  show raw: it => {
+    set text(font: ziti.dengkuan,)
+    if it.block == true {
+      set par(
+        first-line-indent: (amount: 0em, all: true),
+        spacing: 0.3em,
+        leading: 0.3em,
+      )
+      it
+    } else {
+      it
+    }
   }
 
   show ref.where(form: "page"): set ref(supplement: [页])

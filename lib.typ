@@ -15,6 +15,10 @@
 #let documentclass(
   info: (:),
   title-line-length: 260pt,
+  font-fallback: true,
+  math-level: 2,
+  outline-compact: true,
+  citation: (:),
 ) = {
   info = (
     (
@@ -28,30 +32,47 @@
     )
       + info
   )
+  citation = (
+    (
+      func: bibliography("template/ref.bib"),
+      full: false,
+      sup: true,
+    )
+      + citation
+  )
   (
     info: info,
     doc: (..args) => doc(
-      ..args,
       info: info + args.named().at("info", default: (:)),
+      fallback: font-fallback,
+      ..args,
     ),
     conclusion: (..args) => conclusion-page(..args),
-    mainmatter: (..args) => mainmatter(..args),
+    mainmatter: (..args) => mainmatter(math-level: math-level, ..args),
     appendix: (..args) => appendix(..args),
     cover: (..args) => cover-page(
-      ..args,
       info: info + args.named().at("info", default: (:)),
       title-line-length: title-line-length,
+      ..args,
     ),
     declare: (..args) => declare-page(
-      ..args,
       info: info + args.named().at("info", default: (:)),
+      ..args,
     ),
     abstract: (..args) => abstract-page(..args),
-    outline: (..args) => outline-page(..args),
-    bib: (..args) => bibliography-page(..args),
-    acknowledgement: (..args) => acknowledgement-page(
+    outline: (..args) => outline-page(
+      compact: outline-compact,
       ..args,
+    ),
+    bib: (..args) => bibliography-page(
+      bibfunc: citation.func,
+      full: citation.full,
+      sup: citation.sup,
+      ..args,
+    ),
+    acknowledgement: (..args) => acknowledgement-page(
       info: info + args.named().at("info", default: (:)),
+      ..args,
     ),
     under-cover: (..args) => under-cover-page(..args),
   )

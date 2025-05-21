@@ -21,15 +21,26 @@
     student_id: "21123456",
     name: "张三",
     supervisor: "李四教授",
-    date: "2048 年 2 月 31 日起 5 月 32 日止",
+    date: "2048年2月31日起5月32 日止",
   ),
   title-line-length: 260pt, // 如果题目换行不好看，可以在这里适当修改横线长度
+  font-fallback: true, // 为true时字体缺失时使用系统默认，不显示豆腐块
+  math-level: 2, // 选择不同的公式编号层级（不同的老师有不同的要求）
+  outline-compact: false, // true目录是紧凑的形式；false按照学校的方式
+  citation: (
+    func: bibliography("ref.bib"), // 参考文献源文件，主流的论文网站（谷歌学术，知网等）都会提供bibtex格式的参考文献
+    full: false, // false表示只显示已引用的文献，不显示未引用的文献；true表示显示所有文献
+    sup: true, // true表示行内标注默认为上角标；false表示行内标注默认占据整行
+  ),
 )
 
-#show: doc.with(
-  fallback: false, // 为true时字体缺失时使用系统默认，不显示豆腐块
-)
+// 设置文档格式
+#show: doc
+
+// 显示封面
 #cover()
+
+// 显示声明
 #declare()
 
 #abstract(
@@ -49,13 +60,11 @@
   (Times New Roman，小四号，行距20磅)
 ]
 
-#outline(
-  compact: false, // true目录是紧凑的形式；false按照学校的方式
-)
+// 显示目录
+#outline()
 
-#show: mainmatter.with(
-  math-level: 1, // 选择不同的公式编号层级（不同的老师有不同的要求）
-)
+// 设置文档主体的格式
+#show: mainmatter
 
 = 章节一
 
@@ -192,7 +201,6 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
   caption: [欧几里得辗转相除C++实现],
   [
     ```cpp
-    嘿嘿
     #include <bits/stdc++.h>
     using namespace std;
     int gcd(int a, int b) {
@@ -247,7 +255,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 我要引用#ref(<appendix_test_1.1>)：```typst 我要引用@main_test```
 
 == 页面引用
-请注意#ref(<jump>, form: "page") 的```typst #bib```函数，它的`sup`参数在下一节会用到。
+请注意#ref(<jump>, form: "page") 的```typst #bib```函数，它会因为`citation.full`参数变化而发生变化。
 
 #pagebreak()
 
@@ -284,21 +292,22 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
   label-name: "table2",
 )
 
-当```typst #bib```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认不为右上标；当```typst #bib```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认为右上标。
+当```citation```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认不为右上标；
+当```citation```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认为右上标。
 
 使用别的格式时`sup`失效。
 
+// 显示结论
 #conclusion[
   结论是毕业论文的总结，是整篇论文的归宿。应精炼、准确、完整。着重阐述自己的创造性成果及其在本研究领域中的意义、作用，还可进一步提出需要讨论的问题和建议。
 ]
 
-// 参考文献
-#bib(
-  bibfunc: bibliography("ref.bib"),
-  full: false, // false表示只显示已引用的文献，不显示未引用的文献；true表示显示所有文献
-  sup: true, // true表示行内标注默认为上角标；false表示行内标注默认占据整行
-)<jump>
+// 显示参考文献
+#bib()
 
+<jump>
+
+// 设置附录文档格式
 #show: appendix
 
 = 附录格式
@@ -358,6 +367,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 
 ......
 
+// 显示感谢
 #acknowledgement(
   location: "上海大学",
   date: none, // 日期为空则默认为当天
@@ -370,4 +380,5 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 
 ]
 
+// 显示封底
 #under-cover()
