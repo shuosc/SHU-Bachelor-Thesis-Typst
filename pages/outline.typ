@@ -9,23 +9,25 @@
       set text(font: ziti.heiti, size: 14pt)
       if not compact { v(0.5em) }
       if it.element.supplement == [正文] {
-        set text(stroke: 0.4pt)
+        set text(weight: "bold")
         it
       } else {
         it
       }
       if not compact { v(0.5em) }
     } else if it.level == 2 {
+      if not compact { v(0.3em) }
       set text(font: ziti.songti, size: 12pt)
       it
     } else {
+      if not compact { v(0.3em) }
       set text(font: ziti.songti, size: 11pt)
       it
     }
   }
   show outline: it => {
     show heading: set align(center)
-    show heading: set text(font: ziti.heiti, size: 18pt, weight: "bold", stroke: 0.4pt)
+    show heading: set text(font: ziti.heiti, size: 18pt, weight: "bold")
     it
   }
 

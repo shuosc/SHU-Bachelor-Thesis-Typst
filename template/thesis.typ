@@ -21,12 +21,13 @@
     student_id: "21123456",
     name: "张三",
     supervisor: "李四教授",
-    date: "1000-2000",
+    date: "2048 年 2 月 31 日起 5 月 32 日止",
   ),
+  title-line-length: 260pt, // 如果题目换行不好看，可以在这里适当修改横线长度
 )
 
 #show: doc.with(
-  fallback: false // 为true时字体缺失时使用系统默认，不显示豆腐块
+  fallback: false, // 为true时字体缺失时使用系统默认，不显示豆腐块
 )
 #cover()
 #declare()
@@ -49,11 +50,11 @@
 ]
 
 #outline(
-  compact: false // true目录是紧凑的形式；false按照学校的方式
-) 
+  compact: false, // true目录是紧凑的形式；false按照学校的方式
+)
 
 #show: mainmatter.with(
-  math-level: 1 // 选择不同的公式编号层级（不同的老师有不同的要求）
+  math-level: 1, // 选择不同的公式编号层级（不同的老师有不同的要求）
 )
 
 = 章节一
@@ -117,7 +118,7 @@
   subimagex(
     image("figures/energy-distribution.png", width: 70%),
     caption: "子图a",
-    label-name: "test"
+    label-name: "test",
   ),
   subimagex(image("figures/energy-distribution.png", width: 70%)),
   subimagex(image("figures/energy-distribution.png", width: 70%)),

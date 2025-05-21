@@ -6,7 +6,7 @@
 // 文稿设置，可以进行一些像页面边距这类的全局设置
 #let doc(
   info: (:),
-  fallback: false, 
+  fallback: false,
   it,
 ) = {
   set page(
@@ -14,7 +14,7 @@
     header: context {
       box(
         width: 100%,
-        stroke: (bottom: 1pt),
+        stroke: (bottom: 0.5pt),
         inset: (bottom: 4pt),
         text(
           "上海大学本科毕业论文（设计）",
@@ -42,7 +42,7 @@
   )
 
   show raw.where(block: true): it => {
-    set text(font:ziti.dengkuan)
+    set text(font: ziti.dengkuan)
     set par(
       first-line-indent: (amount: 0em, all: true),
       spacing: 0.3em,

@@ -13,9 +13,10 @@
   set text(font: ziti.songti, size: zihao.xiaosi)
   set par(first-line-indent: 2em, leading: 23pt - 1em, spacing: 23pt - 1em, justify: true)
   body
+  linebreak()
   set align(right)
   info.name
-  linebreak()
+  set align(right)
   location
   set align(right)
   if date == none {

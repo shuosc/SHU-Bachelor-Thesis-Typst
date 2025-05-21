@@ -14,6 +14,7 @@
 
 #let documentclass(
   info: (:),
+  title-line-length: 260pt,
 ) = {
   info = (
     (
@@ -23,7 +24,7 @@
       student_id: "[学号]",
       name: "[姓名]",
       supervisor: "[指导老师]",
-      date: "[起讫日期]"
+      date: "[起讫日期]",
     )
       + info
   )
@@ -39,6 +40,7 @@
     cover: (..args) => cover-page(
       ..args,
       info: info + args.named().at("info", default: (:)),
+      title-line-length: title-line-length,
     ),
     declare: (..args) => declare-page(
       ..args,

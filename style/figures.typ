@@ -53,7 +53,7 @@
       [
         #figure(
           it.body,
-          caption: it.counter.display("(a)") + it.caption.body,
+          caption: it.counter.display("(a)") + if it.caption.body != [] { " " } + it.caption.body,
           kind: it.kind + "_",
           supplement: it.supplement,
           outlined: it.outlined,
