@@ -33,10 +33,10 @@
 
   set text(
     font: ziti.songti,
-    size: 18pt,
+    size: 16pt,
   )
 
-  let title-key(zh) = text(distr(zh, w: 3em))
+  let title-key(zh) = text(distr(zh, w: 4em))
   let title-value(zh) = uline(title-line-length, text(zh))
   table(
     align: center + horizon,
