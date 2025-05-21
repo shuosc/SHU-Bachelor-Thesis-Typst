@@ -14,18 +14,18 @@
   set par(spacing: 20pt - 1em, leading: 20pt - 1em, justify: true)
 
   heading(level: 1)[摘#h(1em)要]
-  [
-    #body
-
-    *关键词*：#(("",)+ keywords.intersperse("；")).sum()
+  body
+  v(1em)
+  par(first-line-indent: 0em)[
+    *关键词：*#(("",) + keywords.intersperse("；")).sum()
   ]
   pagebreak(weak: true)
 
   heading(level: 1)[ABSTRACT]
-  [
-    #body-en
-
-    *Keywords*：#(("",)+ keywords-en.intersperse("; ")).sum()
+  body-en
+  v(1em)
+  par(first-line-indent: 0em)[
+    *Keywords:* #(("",) + keywords-en.intersperse("; ")).sum()
   ]
   pagebreak(weak: true)
 }

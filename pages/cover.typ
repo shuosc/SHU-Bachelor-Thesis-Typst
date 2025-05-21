@@ -4,9 +4,10 @@
 
 #let cover-page(
   info: (:),
+  title-line-length: 260pt,
 ) = {
   set page(
-    background: image("../assets/cover.png", width: 100%),
+    background: scale(107.8%, origin: top + center)[#image("../assets/cover.png")],
     header: none,
   )
   set par(first-line-indent: 2em, spacing: 0em, leading: 0em)
@@ -14,7 +15,7 @@
   align(
     center,
     text(font: ziti.songti, size: zihao.chuhao, stroke: 0.2pt)[
-      #v(2.6em)
+      #v(2.8em)
       本科毕业论文（设计）
     ],
   )
@@ -24,48 +25,48 @@
     text(font: ziti.songti, size: zihao.xiaoer)[
       #v(1.3em)
       UNDERGRADUATE#h(1em)THESIS (PROJECT)
-      #v(7em)
+      #v(5em)
     ],
   )
 
-  let info-key(zh) = (
-    text(
-      distr(zh, w: 4em),
-      font: ziti.songti,
-      size: 16pt,
-    )
+  let colon = "："
+
+  set text(
+    font: ziti.songti,
+    size: 18pt,
   )
 
-  let info-value(zh) = uline(
-    260pt,
-    text(
-      zh,
-      font: ziti.songti,
-      size: 16pt,
-    ),
-  )
-
-  let quote = table.cell(inset: (top: 0.7em), text(stroke: 1pt)[:])
-
+  let title-key(zh) = text(distr(zh, w: 3em))
+  let title-value(zh) = uline(title-line-length, text(zh))
   table(
-    align: (x, y) => (
-      if x >= 1 {
-        left
-      } else {
-        right
-      }
-    ),
+    align: center + horizon,
     stroke: none,
-    columns: (15%, 1%, 60%),
+    columns: (auto, auto, auto),
+    column-gutter: (-0.3em, 0.3em),
     inset: (right: 0em),
-    column-gutter: (-0.3em, 1em),
-    info-key("题目"), quote, info-value(info.title),
-    [#v(1.3em)], [], [],
-    info-key("学院"), quote, info-value(info.school),
-    info-key("专业"), quote, info-value(info.major),
-    info-key("学号"), quote, info-value(info.student_id),
-    info-key("学生姓名"), quote, info-value(info.name),
-    info-key("指导教师"), quote, info-value(info.supervisor),
-    info-key("起讫日期"), quote, info-value(info.date),
+    title-key("题目"), colon, title-value(info.title),
+  )
+
+  v(2em)
+
+  set text(
+    font: ziti.songti,
+    size: 16pt,
+  )
+  let info-key(zh) = text(distr(zh, w: 4em))
+  let info-value(zh) = uline(260pt, text(zh))
+  table(
+    align: center + horizon,
+    stroke: none,
+    rows: 1.9em,
+    columns: (auto, auto, auto),
+    column-gutter: (-0.3em, 0.3em),
+    inset: (right: 0em),
+    info-key("学院"), colon, info-value(info.school),
+    info-key("专业"), colon, info-value(info.major),
+    info-key("学号"), colon, info-value(info.student_id),
+    info-key("学生姓名"), colon, info-value(info.name),
+    info-key("指导教师"), colon, info-value(info.supervisor),
+    info-key("起讫日期"), colon, info-value(info.date),
   )
 }
