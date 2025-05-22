@@ -53,7 +53,7 @@
       [
         #figure(
           it.body,
-          caption: it.counter.display("(a)") + if it.caption.body != [] { " " } + it.caption.body,
+          caption: it.counter.display("(a)") + if it.caption != none { " " + it.caption.body },
           kind: it.kind + "_",
           supplement: it.supplement,
           outlined: it.outlined,
@@ -167,7 +167,6 @@
     #v(-1.5em)
   ]
   set table(stroke: none)
-  // show figure: set block(breakable: breakable)
   show figure: set block(breakable: true)
 
   figure(
@@ -206,7 +205,7 @@
 
 #let subimagex(
   body,
-  caption: "",
+  caption: none,
   label-name: "",
 ) = context {
   let prefix = "subimagex-none-label"
