@@ -21,7 +21,7 @@
     student_id: "21123456",
     name: "张三",
     supervisor: "李四教授",
-    date: "2048年2月31日起5月32 日止",
+    date: "2048年2月31日起5月32日止",
   ),
   title-line-length: 260pt, // 如果题目换行不好看，可以在这里适当修改横线长度
   font-fallback: true, // 为true时字体缺失时使用系统默认，不显示豆腐块
