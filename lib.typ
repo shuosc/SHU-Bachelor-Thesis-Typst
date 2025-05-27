@@ -41,6 +41,7 @@
     )
       + citation
   )
+  fonts = (fallback: true) + fonts
   let fallback = fonts.fallback
   fonts.remove("fallback")
 
