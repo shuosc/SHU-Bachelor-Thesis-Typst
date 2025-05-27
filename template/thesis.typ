@@ -30,11 +30,10 @@
     // 可以配置的字体有：songti, heiti, kaiti, fangsong, dengkuan
     // 正文为songti，标题为heiti，代码为dengkuan
     // 下面是使用示例：
-    // 
-    // songti: (
-    //   (name: "Times New Roman", covers: "latin-in-cjk"), // 先指定英文字体
-    //   "簡宋", // 中文字体
-    // ), 
+    songti: (
+      (name: "Times New Roman", covers: "latin-in-cjk"), // 先指定英文字体
+      "簡宋", // 中文字体
+    ),
   ),
   title-line-length: 260pt, // 如果题目换行不好看，可以在这里适当修改横线长度
   math-level: 2, // 选择公式编号层级
@@ -108,7 +107,7 @@
 = 格式要求
 
 
-正文各章节应拟标题，每章结束后应另起一页。标题要简明扼要，不应使用标点符号。各章、节、条的层次，可以按照“1……、1.1……、1.1.1……”标识，条以下具体款项的层次依次按照“1.1.1.1”或“（1）”、“①”等标识。各学院根据实际情况，可自行规定层次格式，但学院之内建议格式统一，以清晰无误为准@liu_survey_2024。
+正文各章节应拟标题，每章结束后应另起一页。标题要简明扼要，不应使用标点符号。各章、节、条的层次，可以按照“1……、1.1……、1.1.1……”标识，条以下具体款项的层次依次按照“1.1.1.1”或“（1）”、“①”等标识。各学院根据实际情况，可自行规定层次格式，但学院之内建议格式统一，以清晰无误为准。
 
 正文是毕业论文的主体和核心部分，不同学科专业和不同的选题可以有不同的写作方式。正文一般包括以下几个方面。
 
@@ -131,8 +130,8 @@
 === 单张图片
 #imagex(
   image("figures/energy-distribution.png", width: 70%),
-  caption: [energy distribution along radial],
-  label-name: "image",
+  caption: [示例图片],
+  label-name: "image1",
 )
 
 === 多个子图
@@ -140,24 +139,23 @@
   subimagex(
     image("figures/energy-distribution.png", width: 70%),
     caption: "子图a",
-    label-name: "test",
+    label-name: "sub1",
   ),
   subimagex(image("figures/energy-distribution.png", width: 70%)),
   subimagex(image("figures/energy-distribution.png", width: 70%)),
   subimagex(image("figures/energy-distribution.png", width: 70%)),
   columns: 2,
-  caption: [energy distribution along radial],
-  label-name: "subfigures",
+  caption: [示例子图],
+  label-name: "image2",
 )
 
 #pagebreak()
 == 表格格式
 
-可以续表:
-#v(30em)
+表格可以在换页的时候自然断开并显示“续表xxxx”，如果需要令表显示在整页中，请将表中的`breakable`设置为`false`。
 
 #tablex(
-  ..for i in range(15) {
+  ..for i in range(5) {
     ([250], [88], [5900], [1.65])
   },
   header: (
@@ -167,9 +165,10 @@
     [感应圈与零件间隙 #linebreak() (mm)],
   ),
   columns: (1fr, 1fr, 1fr, 1fr),
-  caption: [66666666],
-  label-name: "table",
-)<what>
+  caption: [示例表格],
+  label-name: "table1",
+  breakable: true,
+)
 
 == 公式格式
 
@@ -177,9 +176,10 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 
 #h(-2em)其中$mu$是材料的磁导率，$sigma$是材料的电导率，$omega$是电磁波的角频率，$Alpha$是电磁场的矢量位，$J_0$是电流密度。使用```typst #h(-2em)```取消这一行前面的缩进。
 
+#pagebreak()
+
 == 算法格式
-算法也可以续：
-#v(15em)
+算法和表格一样也是换页的时候自然断开并显示“续算法xxxx”。
 #[
   #import "@preview/lovelace:0.2.0": *
   #algox(
@@ -238,16 +238,16 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
     [原始代码],
   ),
   [表格],
-  [我要引用@tbl:table],
+  [我要引用@tbl:table1],
   [```typst 我要引用@tbl:table```],
   table.cell(
     rowspan: 2,
     align: horizon,
   )[图片],
-  [我要引用@img:image],
-  [```typst 我要引用@img:image```],
-  [我要引用@img:subfigures:test],
-  [```typst 我要引用@img:subfigures:test```],
+  [我要引用@img:image1],
+  [```typst 我要引用@img:image1```],
+  [我要引用@img:image2:sub1],
+  [```typst 我要引用@img:subfigures1:test```],
   [算法],
   [我要引用@algo:algorithm],
   [```typst 我要引用@algo:algorithm```],
@@ -256,16 +256,15 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
   [```typst 我要引用@eqt:equation```],
   columns: (1fr, 1fr, 1fr),
   caption: [常规引用示例表],
-  label-name: "table1",
 )
 
-另一种函数引用方法: ```typst #ref(<img:image>)```
+另一种函数引用方法: ```typst #ref(<img:image1>)```
 
 == 章节引用<main_test>
 
 我要引用@main_test：```typst 我要引用@main_test ```
 
-我要引用#ref(<appendix_test_1.1>)：```typst 我要引用@main_test```
+我要引用#ref(<appendix1>)：```typst 我要引用#ref(<appendix1>)```
 
 == 页面引用
 请注意#ref(<jump>, form: "page") 的```typst #bib```函数，它会因为`citation.full`参数变化而发生变化。
@@ -305,10 +304,123 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
   label-name: "table2",
 )
 
-当```citation```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认不为右上标；
-当```citation```中的`sup`为`true`的时候，所有的不标注`sup`的引用默认为右上标。
+当`citation`中的`sup`为`true`的时候，所有的不标注`sup`的引用默认不为右上标；当`citation`中的`sup`为`true`的时候，所有的不标注`sup`的引用默认为右上标。
 
 使用别的格式时`sup`失效。
+
+= 高级格式
+
+== 数据表格
+
+无论是LaTex还是Word，将大量的数据制作成表格往往是一个非常复杂的过程。更何况这些实验数据日后可能还会变更，那么又要对表格的部分内容进行调整（比如加粗数据最大的那一项），这里给出一个制作数据表格的快捷方法，大致的流程是：
++ 将数据保存为CSV格式（Excel等均支持该格式）；
++ 使用Typst读取；
++ 排版并处理数据。
+#ref(<tbl:data1>)是一个简单的例子：
+
+#{
+  // 读取文件，分隔符可以为分号
+  let result = csv("data/heros.csv", delimiter: ",")
+
+  // 获取列数
+  let m = result.at(0).len()
+
+  // 获取表头
+  let head = result.at(0)
+
+  // 获取数据部分
+  let data = result.slice(1)
+
+  tablex(
+    ..data.flatten(), // 将数据展平
+    header: head, // 显示表头
+    columns: m, // 设置列数
+    caption: [超级英雄能力表],
+    label-name: "data1",
+  )
+}
+
+#ref(<tbl:data2>)是一个更复杂的例子：
+
+#let colors = (
+  rgb(214, 38, 40, 255),
+  rgb(43, 160, 43, 255),
+  rgb(158, 216, 229, 255),
+  rgb(114, 158, 206, 255),
+  rgb(204, 204, 91, 255),
+  rgb(255, 186, 119, 255),
+  rgb(147, 102, 188, 255),
+  rgb(30, 119, 181, 255),
+  rgb(188, 188, 33, 255),
+  rgb(255, 127, 12, 255),
+  rgb(196, 175, 214, 255),
+)
+
+#{
+  let results = csv("data/nyuv2.csv", delimiter: ",")
+  let m = results.at(0).len()
+  let head = results.at(0)
+
+  // 将中间的标签旋转90度
+  for y in range(m - 3) {
+    head.at(y + 2) = rotate(
+      90deg,
+      stack(dir: ltr, box(fill: colors.at(y), inset: 4pt), head.at(y + 2)),
+      reflow: true,
+    )
+  }
+  let data = results.slice(1)
+
+  // 将数据中的最大项找出并加粗
+  for y in range(1, m) {
+    // 去除非数据元素
+    let col_num = data.map(row => row.at(y)).filter(it => it.contains(regex("\d")))
+
+    // 找出最大值
+    let max_val = col_num.map(float).reduce(calc.max)
+
+    // 加粗最大值
+    data = data.map(row => {
+      let item = row.at(y)
+      if item.contains(regex("\d")) and float(item) == max_val {
+        row.at(y) = [#strong(item)]
+      }
+      row
+    })
+  }
+  tablex(
+    table.vline(x: 2, stroke: 0.2pt),
+    table.vline(x: m - 1, stroke: 0.2pt),
+    ..data.flatten(),
+    header: head,
+    columns: (15%, 7%, ..(auto,) * 11, 8%),
+    caption: [主流模型在NYUv2数据集下的性能表现],
+    label-name: "data2",
+  )
+}
+#pagebreak()
+
+== 流程图绘制
+
+使用#link("https://typst.app/universe/package/fletcher", underline([Fletcher]))可以绘制流程图，点击横线处链接查看使用文档。
+
+#import "figures/fletcher.typ"
+#imagex(
+  fletcher.resnet_block(100%),
+  caption: [残差块],
+  label-name: "residual",
+)
+
+== 复杂图形绘制
+
+Fletcher是基于#link("https://typst.app/universe/package/cetz", underline([CeTZ]))的，CeTZ可以绘制更复杂的图形，点击横线处链接查看使用文档。
+
+#import "figures/cetz.typ"
+#imagex(
+  cetz.camera_model(70%),
+  caption: [相机针孔成像模型],
+  label-name: "camera_model",
+)
 
 // 显示结论
 #conclusion[
@@ -324,6 +436,7 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 #show: appendix
 
 = 附录格式
+<appendix1>
 
 论文附录依次用大写字母“附录A、附录B、附录C……”表示，附录内的分级序号可采用“附A1、附A1.1、附A1.1.1”等表示，图、表、公式均依此类推为“图A1、表A1、式（A1）”等。包含以下内容：
 
@@ -340,45 +453,6 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 ……
 
 （标题黑体小二号，内容Times New Roman/宋体，小四号，行距20磅）
-
-== 测试1
-
-#figure(
-  image(
-    "figures/energy-distribution.png",
-    width: 70%,
-  ),
-  kind: "image",
-  supplement: [图],
-  caption: [Energy distribution along radial], // 英文图例
-)<image2>
-
-......
-
-=== 测试1.1 <appendix_test_1.1>
-
-#figure(
-  image(
-    "figures/energy-distribution.png",
-    width: 70%,
-  ),
-  kind: "image",
-  supplement: [图],
-  caption: [Energy distribution along radial], // 英文图例
-)<image3>
-
-= 测试2
-#figure(
-  image(
-    "figures/energy-distribution.png",
-    width: 70%,
-  ),
-  kind: "image",
-  supplement: [图],
-  caption: [Energy distribution along radial], // 英文图例
-)<image4>
-
-......
 
 // 显示感谢
 #acknowledgement(
