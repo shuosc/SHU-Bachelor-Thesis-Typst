@@ -118,7 +118,6 @@
                 set align(left)
                 set text(font: ziti.heiti.get(), size: zihao.xiaosi, weight: "bold")
                 [续#ref(head-label)]
-                nxt.update(false)
               } else {
                 v(-0.9em)
                 nxt.update(true)
@@ -167,7 +166,7 @@
     #v(-1.5em)
   ]
   set table(stroke: none)
-  show figure: set block(breakable: true)
+  show figure: set block(breakable: breakable)
 
   figure(
     table(
@@ -181,7 +180,6 @@
               set align(left)
               set text(font: ziti.heiti.get(), size: zihao.xiaosi, weight: "bold")
               [续#ref(head-label)]
-              nxt.update(false)
             } else {
               set align(left)
               set text(font: ziti.heiti.get(), size: zihao.xiaosi, weight: "bold")
@@ -233,7 +231,6 @@
   ..body,
   caption: auto,
   columns: auto,
-  breakable: false,
   label-name: "",
 ) = context {
   let prefix = "subimagex-none-label"
