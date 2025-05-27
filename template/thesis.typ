@@ -310,12 +310,6 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 
 使用别的格式时`sup`失效。
 
-= 高级格式
-
-== 数据图表
-
-
-
 // 显示结论
 #conclusion[
   结论是毕业论文的总结，是整篇论文的归宿。应精炼、准确、完整。着重阐述自己的创造性成果及其在本研究领域中的意义、作用，还可进一步提出需要讨论的问题和建议。
