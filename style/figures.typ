@@ -17,7 +17,7 @@
   appendix: false,
   math-level: 2,
   body,
-) = {
+) = context {
   show figure: set align(center)
   show table: set align(center)
 
@@ -45,7 +45,7 @@
   set math.equation(supplement: [公式])
 
   set figure.caption(separator: [#h(1em)])
-  show figure.caption: set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
+  show figure.caption: set text(font: ziti.heiti.get(), size: zihao.xiaosi, weight: "bold")
 
   show figure.where(kind: "subimage"): it => {
     if it.kind == "subimage" {
@@ -116,7 +116,7 @@
             {
               context if nxt.get() {
                 set align(left)
-                set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
+                set text(font: ziti.heiti.get(), size: zihao.xiaosi, weight: "bold")
                 [续#ref(head-label)]
                 nxt.update(false)
               } else {
@@ -179,12 +179,12 @@
           {
             context if nxt.get() {
               set align(left)
-              set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
+              set text(font: ziti.heiti.get(), size: zihao.xiaosi, weight: "bold")
               [续#ref(head-label)]
               nxt.update(false)
             } else {
               set align(left)
-              set text(font: ziti.heiti, size: zihao.xiaosi, weight: "bold")
+              set text(font: ziti.heiti.get(), size: zihao.xiaosi, weight: "bold")
               line(start: (-5pt, 0pt), length: 100% + 10pt)
               v(-0.5em)
               [

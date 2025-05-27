@@ -13,6 +13,7 @@
   bib,
   acknowledgement,
   under-cover,
+  fonts,
 ) = documentclass(
   info: (
     title: "基于Typst的上海大学毕业论文模板",
@@ -23,9 +24,20 @@
     supervisor: "李四教授",
     date: "2048年2月31日起5月32日止",
   ),
+  fonts: (
+    fallback: false, // 为true时字体缺失时使用系统默认，不显示豆腐块
+    // 模版内置了一定的字体调用顺序，但可能与系统的不一致，出现这种情况是先在Tinyminst->Tool->Fonts的字体库中找到字体名称，然后在下面填入即可
+    // 可以配置的字体有：songti, heiti, kaiti, fangsong, dengkuan
+    // 正文为songti，标题为heiti，代码为dengkuan
+    // 下面是使用示例：
+    // 
+    // songti: (
+    //   (name: "Times New Roman", covers: "latin-in-cjk"), // 先指定英文字体
+    //   "簡宋", // 中文字体
+    // ), 
+  ),
   title-line-length: 260pt, // 如果题目换行不好看，可以在这里适当修改横线长度
-  font-fallback: true, // 为true时字体缺失时使用系统默认，不显示豆腐块
-  math-level: 2, // 选择不同的公式编号层级（不同的老师有不同的要求）
+  math-level: 2, // 选择公式编号层级
   outline-compact: false, // true目录是紧凑的形式；false按照学校的方式
   citation: (
     func: bibliography("ref.bib"), // 参考文献源文件，主流的论文网站（谷歌学术，知网等）都会提供bibtex格式的参考文献
@@ -35,6 +47,7 @@
 )
 
 // 设置文档格式
+#fonts
 #show: doc
 
 // 显示封面

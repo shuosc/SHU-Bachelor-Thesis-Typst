@@ -8,7 +8,7 @@
   info: (:),
   fallback: false,
   it,
-) = {
+) = context {
   set page(
     margin: (top: 2.8cm, bottom: 2.5cm, left: 3cm, right: 2.5cm),
     header: context {
@@ -18,7 +18,7 @@
         inset: (bottom: 4pt),
         text(
           "上海大学本科毕业论文（设计）",
-          font: ziti.songti,
+          font: ziti.songti.get(),
           size: zihao.wuhao,
           top-edge: 0.8em,
           bottom-edge: -0.2em,
@@ -29,7 +29,7 @@
   )
 
   set text(
-    font: ziti.songti,
+    font: ziti.songti.get(),
     size: zihao.xiaosi,
     top-edge: 0.8em,
     bottom-edge: -0.2em,
@@ -41,8 +41,8 @@
     leading: 0.3em,
   )
 
-  show raw: it => {
-    set text(font: ziti.dengkuan,)
+  show raw: it => context {
+    set text(font: ziti.dengkuan.get())
     if it.block == true {
       set par(
         first-line-indent: (amount: 0em, all: true),
