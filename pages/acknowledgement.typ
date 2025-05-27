@@ -6,11 +6,11 @@
   date: none,
   location: "上海大学",
   body,
-) = {
+) = context {
   pagebreak(weak: true)
   show: none-heading
   heading(level: 1)[致#h(1em)谢]
-  set text(font: ziti.songti, size: zihao.xiaosi)
+  set text(font: ziti.songti.get(), size: zihao.xiaosi)
   set par(first-line-indent: 2em, leading: 23pt - 1em, spacing: 23pt - 1em, justify: true)
   body
   linebreak()

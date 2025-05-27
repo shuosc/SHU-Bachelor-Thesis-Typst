@@ -19,6 +19,7 @@
   math-level: 2,
   outline-compact: true,
   citation: (:),
+  fonts: (:),
 ) = {
   info = (
     (
@@ -40,11 +41,14 @@
     )
       + citation
   )
-  (
+  let fallback = fonts.fallback
+  fonts.remove("fallback")
+
+  return (
     info: info,
     doc: (..args) => doc(
       info: info + args.named().at("info", default: (:)),
-      fallback: font-fallback,
+      fallback: fallback,
       ..args,
     ),
     conclusion: (..args) => conclusion-page(..args),
@@ -75,5 +79,10 @@
       ..args,
     ),
     under-cover: (..args) => under-cover-page(..args),
+    fonts: {
+      for (key, value) in fonts {
+        context ziti.at(key).update(value + ziti.at(key).get())
+      }
+    },
   )
 }

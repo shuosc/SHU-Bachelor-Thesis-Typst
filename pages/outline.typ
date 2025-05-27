@@ -3,10 +3,10 @@
 #let outline-page(
   info: (:),
   compact: false,
-) = {
-  show outline.entry: it => {
+) = context {
+  show outline.entry: it => context {
     if it.level == 1 {
-      set text(font: ziti.heiti, size: 14pt)
+      set text(font: ziti.heiti.get(), size: 14pt)
       if not compact { v(0.5em) }
       if it.element.supplement == [正文] {
         set text(weight: "bold")
@@ -17,17 +17,17 @@
       if not compact { v(0.5em) }
     } else if it.level == 2 {
       if not compact { v(0.3em) }
-      set text(font: ziti.songti, size: 12pt)
+      set text(font: ziti.songti.get(), size: 12pt)
       it
     } else {
       if not compact { v(0.3em) }
-      set text(font: ziti.songti, size: 11pt)
+      set text(font: ziti.songti.get(), size: 11pt)
       it
     }
   }
   show outline: it => {
     show heading: set align(center)
-    show heading: set text(font: ziti.heiti, size: 18pt, weight: "bold")
+    show heading: set text(font: ziti.heiti.get(), size: 18pt, weight: "bold")
     it
   }
 

@@ -9,7 +9,7 @@
   )
   show heading.where(level: 1): it => {
     set text(
-      font: ziti.heiti,
+      font: ziti.heiti.get(),
       weight: "regular",
       size: zihao.xiaoer,
     )
@@ -34,7 +34,7 @@
     supplement: "正文",
   )
   show heading: it => {
-    set text(font: ziti.heiti)
+    set text(font: ziti.heiti.get())
     set par(first-line-indent: 0em, spacing: 0em)
     if it.level == 1 {
       set align(center)
@@ -72,7 +72,7 @@
   counter(heading).update(0)
   show heading.where(level: 1): set align(center)
   show heading: it => {
-    set text(font: ziti.heiti)
+    set text(font: ziti.heiti.get())
     set par(first-line-indent: 0em, spacing: 0em)
     if it.level == 1 {
       set text(weight: "bold", size: zihao.xiaoer)

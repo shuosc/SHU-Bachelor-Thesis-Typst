@@ -4,8 +4,8 @@
 
 #let declare-page(
   info: (:),
-) = {
-  set text(font: ziti.songti, size: zihao.xiaosi)
+) = context {
+  set text(font: ziti.songti.get(), size: zihao.xiaosi)
   v(-1.1em)
   align(center)[
     #table(
@@ -18,12 +18,12 @@
     )]
   v(1.3em)
   align(center)[
-    #set text(font: ziti.songti, size: zihao.erhao, stroke: 0.4pt)
+    #set text(font: ziti.songti.get(), size: zihao.erhao, stroke: 0.4pt)
     #v(1.5 * 1.3em)
     原#h(0.5em)创#h(0.5em)性#h(0.5em)声#h(0.5em)明
   ]
   [
-    #set text(font: ziti.songti, size: zihao.sihao)
+    #set text(font: ziti.songti.get(), size: zihao.sihao)
     #set par(justify: true, leading: 1.5 * 1.3em - 1em + 5pt, spacing: 1.5 * 1.3em - 1em + 5pt)
     #v(1.5 * 1.3em)
     本人声明：所呈交的论文是本人在指导教师指导下进行的研究工作。除了文中特别加以标注和致谢的地方外，论文中不包含其他人已发表或撰写过的研究成果。参与同一工作的其他同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示了谢意。
@@ -35,11 +35,11 @@
     #linebreak()
   ]
   align(center)[
-    #set text(font: ziti.songti, size: zihao.erhao, stroke: 0.4pt)
+    #set text(font: ziti.songti.get(), size: zihao.erhao, stroke: 0.4pt)
     本论文使用授权说明
   ]
   [
-    #set text(font: ziti.songti, size: zihao.sihao)
+    #set text(font: ziti.songti.get(), size: zihao.sihao)
     #set par(justify: true, leading: 1.5 * 1.3em - 1em + 6pt, spacing: 1.5 * 1.3em - 1em + 6pt)
     #v(1.5 * 1.3em)
     本人完全了解上海大学有关保留、使用学位论文的规定，即：学校有权保留论文及送交论文复印件，允许论文被查阅和借阅；学校可以公布论文的全部或部分内容。#linebreak()
