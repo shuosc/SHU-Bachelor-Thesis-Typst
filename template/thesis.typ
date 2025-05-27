@@ -421,6 +421,22 @@ Fletcher是基于#link("https://typst.app/universe/package/cetz", underline([CeT
   caption: [相机针孔成像模型],
   label-name: "camera_model",
 )
+#pagebreak()
+
+== LaTex公式
+如果你不习惯Typst的公式，可以使用#link("https://typst.app/universe/package/mitex", underline([MiTex]))，点击横线处链接查看使用文档。
+
+#import "@preview/mitex:0.2.5": *
+
+行内公式如下：#mi("x") 或 #mi[y]。
+
+块级公式如#ref(<eqt:equation1>)：
+#mitex(`
+  \newcommand{\f}[2]{#1f(#2)}
+  \f\relax{x} = \int_{-\infty}^\infty
+    \f\hat\xi\,e^{2 \pi i \xi x}
+    \,d\xi
+`)<equation1>
 
 // 显示结论
 #conclusion[
