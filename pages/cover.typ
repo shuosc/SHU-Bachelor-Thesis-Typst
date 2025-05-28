@@ -29,38 +29,41 @@
   )
 
   let colon = "："
-
   set text(
     font: ziti.songti.get(),
     size: 16pt,
   )
-
-  let title-key(zh) = text(distr(zh, w: 4em))
-  let title-value(zh) = uline(title-line-length, text(zh))
+  let info-key(zh) = distr(zh, w: 4em)
+  let info-value(zh) = uline(260pt, zh)
+  let first = info.title.codepoints()
+  let second = ()
+  let length = first.len()
+  for i in range(length) {
+    let first_size = measure(
+      text(
+        font: ziti.songti.get(),
+        size: 16pt,
+        first.reduce((s, it) => s + str(it)),
+      ),
+    ).width
+    if first_size <= calc.min(260pt, title-line-length) {
+      first = first.reduce((s, it) => s + str(it))
+      second = second.reduce((s, it) => str(it) + s)
+      break
+    }
+    second.push(first.pop())
+  }
   table(
     align: center + horizon,
     stroke: none,
     columns: (auto, auto, auto),
     column-gutter: (-0.3em, 0.3em),
-    inset: (right: 0em),
-    title-key("题目"), colon, title-value(info.title),
-  )
-
-  v(2em)
-
-  set text(
-    font: ziti.songti.get(),
-    size: 16pt,
-  )
-  let info-key(zh) = text(distr(zh, w: 4em))
-  let info-value(zh) = uline(260pt, text(zh))
-  table(
-    align: center + horizon,
-    stroke: none,
-    rows: 1.9em,
-    columns: (auto, auto, auto),
-    column-gutter: (-0.3em, 0.3em),
-    inset: (right: 0em),
+    inset: (right: 0em, top: 0.45em, bottom: 0.45em),
+    info-key("题目"), colon, info-value(first),
+    ..if second != none {
+      ([#v(1em)], [], info-value(second))
+    },
+    [#v(1em)], [], [],
     info-key("学院"), colon, info-value(info.school),
     info-key("专业"), colon, info-value(info.major),
     info-key("学号"), colon, info-value(info.student_id),
