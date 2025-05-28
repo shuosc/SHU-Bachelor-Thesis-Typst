@@ -35,7 +35,7 @@
       "簡宋", // 中文字体
     ),
   ),
-  title-line-length: 260pt, // 如果题目换行不好看，可以在这里适当修改横线长度
+  title-line-length: 260pt, // 如果题目换行不好看，可以在这里适当修改换行的长度
   math-level: 2, // 选择公式编号层级
   outline-compact: false, // true目录是紧凑的形式；false按照学校的方式
   citation: (
