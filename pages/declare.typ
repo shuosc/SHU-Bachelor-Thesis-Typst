@@ -4,6 +4,9 @@
 
 #let declare-page(
   info: (:),
+  author_sign: none,
+  supervisor_sign: none,
+  date: none,
 ) = context {
   set text(font: ziti.songti.get(), size: zihao.xiaosi)
   v(-1.1em)
@@ -30,7 +33,11 @@
     #linebreak()
     #linebreak()
 
-    签 名：#uline(5.5em, "")日 期：#uline(5.5em, "")
+    签 名：#uline(5.5em, place(center+bottom,author_sign))
+    日 期：#uline(
+      5.5em,
+      if date == none { datetime.today().display("[year].[month].[day]") } else { date },
+    )
     #linebreak()
     #linebreak()
   ]
@@ -46,7 +53,9 @@
 
     #text(stroke: 0.4pt)[（保密的论文在解密后应遵守此规定）] #linebreak() #linebreak()
 
-    签 名：#uline(5.5em, "")指导教师签名：#uline(5.5em, "")日 期：#uline(5.5em, "")
+    签 名：#uline(5.5em, place(center+bottom, author_sign))
+    指导教师签名：#uline(5.5em, place(center+bottom,supervisor_sign))
+    日 期：#uline(5.5em, if date == none { datetime.today().display("[year].[month].[day]") } else { date })
   ]
 
   pagebreak(weak: true)
