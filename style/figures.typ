@@ -232,6 +232,7 @@
   caption: auto,
   columns: auto,
   label-name: "",
+  placement: none,
 ) = context {
   let prefix = "imagex-none-label"
   let none-label = state(prefix, 0)
@@ -248,6 +249,7 @@
       caption: caption,
       kind: "image",
       supplement: [图],
+      placement: placement,
     )#new-label
   ]
 }

@@ -136,6 +136,7 @@
   image("figures/energy-distribution.png", width: 70%),
   caption: [示例图片],
   label-name: "image1",
+  placement: none, // 默认 none, 即图片会强制显示在当前位置; 还可以设置为 auto, top, bottom, 分别表示自动、顶部、底部 (推荐使用 auto)
 )
 
 === 多个子图
@@ -151,9 +152,11 @@
   columns: 2,
   caption: [示例子图],
   label-name: "image2",
+  placement: none, // 默认 none, 即图片会强制显示在当前位置; 还可以设置为 auto, top, bottom, 分别表示自动、顶部、底部 (推荐使用 auto)
 )
 
 #pagebreak()
+
 == 表格格式
 
 表格可以在换页的时候自然断开并显示“续表xxxx”，如果需要令表显示在整页中，请将表中的`breakable`设置为`false`。
