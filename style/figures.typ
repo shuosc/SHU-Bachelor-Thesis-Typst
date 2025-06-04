@@ -99,7 +99,7 @@
   if label-name == "" {
     let id = int(none-label.get())
     label-name = str("~" + prefix + "-" + str(id))
-    none-label.update(id + 1)
+    none-label.update(id => id + 1)
   }
   let nxt = state("tablex" + label-name, false)
   let new-label = label(label-name)
@@ -150,7 +150,7 @@
   if label-name == "" {
     let id = int(none-label.get())
     label-name = str("~" + prefix + "-" + str(id))
-    none-label.update(id + 1)
+    none-label.update(id => id + 1)
   }
   let new-label = label(label-name)
   let head-label = label("algo:" + label-name)
@@ -212,7 +212,7 @@
   if label-name == "" {
     let id = int(none-label.get())
     label-name = str("~" + prefix + "-" + str(id))
-    none-label.update(id + 1)
+    none-label.update(id => id + 1)
   }
   let new-label = label(label-name)
   [
@@ -240,7 +240,7 @@
   if label-name == "" {
     let id = int(none-label.get())
     label-name = str("~" + prefix + "-" + str(id))
-    none-label.update(id + 1)
+    none-label.update(id => id + 1)
   }
   let new-label = label(label-name)
   [
