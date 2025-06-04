@@ -54,8 +54,8 @@
 
 // 显示声明
 #declare(
-  author_sign: image("figures/sign.png"), // 学生签名
-  supervisor_sign: image("figures/sign.png"), // 教师签名
+  author-sign: image("figures/sign.png"), // 学生签名
+  supervisor-sign: image("figures/sign.png"), // 教师签名
   date: none, // 日期为空则默认为当天
 )
 
@@ -411,23 +411,22 @@ $ 1 / mu nabla^2 Alpha - j omega sigma Alpha - nabla(1 / mu) times (nabla times 
 
 使用#link("https://typst.app/universe/package/fletcher", underline([Fletcher]))可以绘制流程图，点击横线处链接查看使用文档。
 
-#import "figures/fletcher.typ"
 #imagex(
-  fletcher.resnet_block(100%),
-  caption: [残差块],
-  label-name: "residual",
+  image("figures/fletcher.png"),
+  caption: [Fletcher示例],
 )
+
+#pagebreak()
 
 == 复杂图形绘制
 
 Fletcher是基于#link("https://typst.app/universe/package/cetz", underline([CeTZ]))的，CeTZ可以绘制更复杂的图形，点击横线处链接查看使用文档。
 
-#import "figures/cetz.typ"
 #imagex(
-  cetz.camera_model(70%),
-  caption: [相机针孔成像模型],
-  label-name: "camera_model",
+  image("figures/cetz.png"),
+  caption: [CeTZ示例],
 )
+
 #pagebreak()
 
 == LaTex公式
