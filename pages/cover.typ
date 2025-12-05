@@ -37,22 +37,27 @@
   let info-value(zh) = uline(260pt, zh)
   let first = info.title.codepoints()
   let second = ()
-  let length = first.len()
-  for i in range(length) {
-    let first_size = measure(
+  let l = 1
+  let r = first.len()
+  let pos = r
+  while l <= r {
+    let mid = int((l + r) / 2)
+    let width = measure(
       text(
         font: ziti.songti.get(),
         size: 16pt,
-        first.reduce((s, it) => s + str(it)),
+        info.title.codepoints().slice(0, mid).reduce((s, it) => s + str(it)),
       ),
     ).width
-    if first_size <= calc.min(260pt, title-line-length) {
-      first = first.reduce((s, it) => s + str(it))
-      second = second.reduce((s, it) => str(it) + s)
-      break
+    if width <= title-line-length {
+      pos = mid
+      l = mid + 1
+    } else {
+      r = mid - 1
     }
-    second.push(first.pop())
   }
+  let first = info.title.codepoints().slice(0, pos).reduce((s, it) => s + str(it))
+  let second = info.title.codepoints().slice(pos).reduce((s, it) => s + str(it))
   table(
     align: center + horizon,
     stroke: none,
